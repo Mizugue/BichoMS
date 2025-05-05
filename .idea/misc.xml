@@ -6,6 +6,10 @@
       <list>
         <option value="$PROJECT_DIR$/jogoApp/jogoApp/pom.xml" />
         <option value="$PROJECT_DIR$/configBichoMS/configBichoMS/pom.xml" />
+        <option value="$PROJECT_DIR$/ResultApp/ResultApp/pom.xml" />
+        <option value="$PROJECT_DIR$/JogoApp/JogoApp/pom.xml" />
+        <option value="$PROJECT_DIR$/ConfigApp/ConfigApp/pom.xml" />
+        <option value="$PROJECT_DIR$/GameApp/GameApp/pom.xml" />
       </list>
     </option>
   </component>
