@@ -12,6 +12,7 @@ public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
     private String first;
     private String second;
     private String third;
@@ -19,7 +20,8 @@ public class Result {
     private String fifth;
     private LocalDateTime date;
 
-    public Result(Long id, String first, String second, String third, String fourth, String fifth, LocalDateTime date) {
+
+    public Result(Long id, String first, String second, String third, String fourth, String fifth, LocalDateTime date, String name) {
         this.id = id;
         this.first = first;
         this.second = second;
@@ -27,6 +29,7 @@ public class Result {
         this.fourth = fourth;
         this.fifth = fifth;
         this.date = date;
+        this.name = name;
     }
 
     public Result() {
@@ -86,5 +89,13 @@ public class Result {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

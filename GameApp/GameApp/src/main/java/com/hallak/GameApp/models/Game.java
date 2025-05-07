@@ -15,6 +15,7 @@ public class Game {
     private LocalDateTime creationDate;
     private LocalDateTime captureDate;
     private boolean status;
+    private House house;
 
     public Game(Long id, String name, LocalDateTime creationDate, LocalDateTime captureDate, boolean status) {
         this.id = id;

@@ -1,10 +1,9 @@
-package com.hallak.GameApp;
+package com.hallak.GameApp.services;
 
 import com.hallak.GameApp.dtos.GameDTO;
 import com.hallak.GameApp.dtos.GameMakeDTO;
 import com.hallak.GameApp.models.Game;
 import com.hallak.GameApp.repositories.GameRepository;
-import com.hallak.GameApp.services.GameService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

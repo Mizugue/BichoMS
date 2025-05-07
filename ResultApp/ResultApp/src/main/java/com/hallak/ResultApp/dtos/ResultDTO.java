@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class ResultDTO {
 
+    private String name;
     private String first;
     private String second;
     private String third;
@@ -14,13 +15,14 @@ public class ResultDTO {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime date;
 
-    public ResultDTO(String first, String second, String third, String fourth, String fifth, LocalDateTime date) {
+    public ResultDTO(String first, String second, String third, String fourth, String fifth, LocalDateTime date, String name) {
         this.first = first;
         this.second = second;
         this.third = third;
         this.fourth = fourth;
         this.fifth = fifth;
         this.date = date;
+        this.name = name;
     }
 
     public ResultDTO() {
@@ -74,16 +76,11 @@ public class ResultDTO {
         this.date = date;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ResultDTO resultDTO = (ResultDTO) o;
-        return Objects.equals(first, resultDTO.first) && Objects.equals(second, resultDTO.second) && Objects.equals(third, resultDTO.third) && Objects.equals(fourth, resultDTO.fourth) && Objects.equals(fifth, resultDTO.fifth) && Objects.equals(date, resultDTO.date);
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(first, second, third, fourth, fifth, date);
+    public void setName(String name) {
+        this.name = name;
     }
 }
