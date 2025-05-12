@@ -1,14 +1,15 @@
-package com.hallak.GameApp.config;
+package com.hallak.GameApp.util;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class AppConfig {
+public class AppUtil {
 
     @Bean
     public ModelMapper modelMapper(){
         return new ModelMapper();
     }
+
 }

@@ -15,13 +15,17 @@ public class Game {
     private LocalDateTime creationDate;
     private LocalDateTime captureDate;
     private boolean status;
+
+    @ManyToOne
+    @JoinColumn(name = "house_id")
     private House house;
 
-    public Game(Long id, String name, LocalDateTime creationDate, LocalDateTime captureDate, boolean status) {
+    public Game(Long id, String name, LocalDateTime creationDate, LocalDateTime captureDate, boolean status, House house) {
         this.id = id;
         this.name = name;
         this.creationDate = creationDate;
         this.captureDate = captureDate;
+        this.house = house;
     }
 
     public Game() {
@@ -65,5 +69,13 @@ public class Game {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
     }
 }

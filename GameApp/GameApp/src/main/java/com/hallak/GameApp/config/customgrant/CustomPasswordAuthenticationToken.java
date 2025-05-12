@@ -1,4 +1,4 @@
-package com.jchallak.BancoAzimov.config.customgrant;
+package com.hallak.GameApp.config.customgrant;
 
 import java.util.Collections;
 import java.util.HashSet;

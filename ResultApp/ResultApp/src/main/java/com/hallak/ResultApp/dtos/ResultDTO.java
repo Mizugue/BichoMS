@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public class ResultDTO {
 
-    private String name;
     private String first;
     private String second;
     private String third;
@@ -15,18 +14,19 @@ public class ResultDTO {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime date;
 
-    public ResultDTO(String first, String second, String third, String fourth, String fifth, LocalDateTime date, String name) {
+    public ResultDTO(String first, String second, String third, String fourth, String fifth, LocalDateTime date) {
         this.first = first;
         this.second = second;
         this.third = third;
         this.fourth = fourth;
         this.fifth = fifth;
         this.date = date;
-        this.name = name;
     }
 
     public ResultDTO() {
     }
+
+
 
     public String getFirst() {
         return first;
@@ -76,11 +76,4 @@ public class ResultDTO {
         this.date = date;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

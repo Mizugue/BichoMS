@@ -1,4 +1,4 @@
-package com.hallak.ResultApp.utils;
+package com.hallak.ResultApp.util;
 
 import com.hallak.ResultApp.dtos.ResultDTO;
 
@@ -19,12 +19,12 @@ public class ResultUtils {
         }
 
         return new ResultDTO(
-            numbers.getFirst(),
-            numbers.get(1),
-            numbers.get(2),
-            numbers.get(3),
-            numbers.getLast(),
-            LocalDateTime.now());
+                numbers.getFirst(),
+                numbers.get(1),
+                numbers.get(2),
+                numbers.get(3),
+                numbers.getLast(),
+                LocalDateTime.now());
     }
 
 }
