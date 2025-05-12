@@ -27,6 +27,9 @@ public class User implements UserDetails {
 
     private String password;
 
+    @OneToMany(mappedBy = "user")
+    private Set<Bet> bets;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -35,11 +38,13 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<Role>();
 
-    public User(Long id, String email, String username, String password) {
+    public User(Long id, String email, String username, String password, Set<Bet> bets, Set<Role> roles) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.bets = bets;
+        this.roles = roles;
     }
 
     public User() {
@@ -104,5 +109,19 @@ public class User implements UserDetails {
         this.password = password;
     }
 
+    public Set<Bet> getBets() {
+        return bets;
+    }
 
+    public void setBets(Set<Bet> bets) {
+        this.bets = bets;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Role role) {
+        this.roles.add(role);
+    }
 }

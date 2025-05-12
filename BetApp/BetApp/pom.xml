@@ -71,7 +71,6 @@
     		<artifactId>spring-security-oauth2-resource-server</artifactId>
     		<version>6.4.5</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>

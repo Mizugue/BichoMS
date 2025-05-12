@@ -1,31 +1,22 @@
-package com.hallak.BetApp.models;
+package com.hallak.BetApp.dtos.bet;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.hallak.BetApp.models.BetType;
+import com.hallak.BetApp.models.User;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 
-@Entity
-@Table(name = "tb_bet")
-public class Bet {
+public class BetDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Enumerated(EnumType.STRING)
     private BetType type;
-
     private List<Integer> values;
-
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime date;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
     private User user;
 
-    public Bet(Long id, BetType type, List<Integer> values, LocalDateTime date, User user) {
+    public BetDTO(Long id, BetType type, List<Integer> values, LocalDateTime date, User user) {
         this.id = id;
         this.type = type;
         this.values = values;
@@ -33,7 +24,7 @@ public class Bet {
         this.user = user;
     }
 
-    public Bet() {
+    public BetDTO() {
     }
 
     public Long getId() {
@@ -74,18 +65,5 @@ public class Bet {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Bet bet = (Bet) o;
-        return Objects.equals(id, bet.id) && type == bet.type && Objects.equals(values, bet.values) && Objects.equals(date, bet.date) && Objects.equals(user, bet.user);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, type, values, date, user);
     }
 }
