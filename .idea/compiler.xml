@@ -19,6 +19,15 @@
         </processorPath>
         <module name="ResultApp" />
       </profile>
+      <profile name="Annotation profile for BetApp" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="BetApp" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="JogoApp" target="22" />
@@ -26,6 +35,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="BetApp" options="-parameters" />
       <module name="ConfigApp" options="-parameters" />
       <module name="GameApp" options="-parameters" />
       <module name="JogoApp" options="-parameters" />

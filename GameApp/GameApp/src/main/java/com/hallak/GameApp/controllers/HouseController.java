@@ -4,7 +4,6 @@ import com.hallak.GameApp.dtos.HouseDTO;
 import com.hallak.GameApp.dtos.HouseOddsDTO;
 import com.hallak.GameApp.dtos.HouseRegisterDTO;
 import com.hallak.GameApp.dtos.HouseReturnOfRegisterDTO;
-import com.hallak.GameApp.models.House;
 import com.hallak.GameApp.services.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping()
+@RequestMapping(value = "/house")
 public class HouseController {
 
     @Autowired
@@ -31,12 +30,13 @@ public class HouseController {
         return new ResponseEntity<>(houseService.saveHouse(houseDTO), HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasAnyRole('USER')")
     @PostMapping(value = "/odds")
     public ResponseEntity<HouseOddsDTO> newOdds(@RequestBody HouseOddsDTO houseDTO){
         return new ResponseEntity<>(houseService.newOdds(houseDTO), HttpStatus.CREATED);
     }
 
-    //@GetMapping(value = "/odds")
+
 
 
 
