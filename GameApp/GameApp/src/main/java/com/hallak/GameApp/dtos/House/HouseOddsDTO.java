@@ -1,4 +1,4 @@
-package com.hallak.GameApp.dtos;
+package com.hallak.GameApp.dtos.House;
 
 import java.math.BigDecimal;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.hallak.GameApp.dtos;
+package com.hallak.GameApp.dtos.Game;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

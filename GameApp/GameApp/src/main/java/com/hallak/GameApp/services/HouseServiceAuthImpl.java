@@ -1,9 +1,9 @@
 package com.hallak.GameApp.services;
 
-import com.hallak.GameApp.dtos.HouseDTO;
-import com.hallak.GameApp.dtos.HouseOddsDTO;
-import com.hallak.GameApp.dtos.HouseRegisterDTO;
-import com.hallak.GameApp.dtos.HouseReturnOfRegisterDTO;
+import com.hallak.GameApp.dtos.House.HouseDTO;
+import com.hallak.GameApp.dtos.House.HouseOddsDTO;
+import com.hallak.GameApp.dtos.House.HouseRegisterDTO;
+import com.hallak.GameApp.dtos.House.HouseReturnOfRegisterDTO;
 import com.hallak.GameApp.models.BetType;
 import com.hallak.GameApp.models.House;
 import com.hallak.GameApp.models.Role;
@@ -11,13 +11,10 @@ import com.hallak.GameApp.repositories.HouseRepository;
 import com.hallak.GameApp.repositories.RoleRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,7 +1,7 @@
-package com.hallak.GameApp.dtos;
+package com.hallak.GameApp.dtos.House;
 
+import com.hallak.GameApp.dtos.Game.GameDTO;
 import com.hallak.GameApp.models.BetType;
-import com.hallak.GameApp.models.Game;
 import com.hallak.GameApp.models.Role;
 
 import java.math.BigDecimal;

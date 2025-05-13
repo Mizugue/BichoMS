@@ -1,10 +1,9 @@
 package com.hallak.GameApp.services;
 
 
-import com.hallak.GameApp.dtos.GameDTO;
-import com.hallak.GameApp.dtos.GameMakeDTO;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.hallak.GameApp.dtos.Game.GameDTO;
+import com.hallak.GameApp.dtos.Game.GameInterServiceDTO;
+import com.hallak.GameApp.dtos.Game.GameMakeDTO;
 
 import java.util.List;
 
@@ -12,7 +11,8 @@ import java.util.List;
 public interface GameService {
 
     GameDTO newGame(GameMakeDTO dto);
-    List<GameDTO> findAll();
+    List<GameDTO> findAllMy();
+    List<GameInterServiceDTO> findAll();
 
 
 }

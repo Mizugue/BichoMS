@@ -1,11 +1,10 @@
 package com.hallak.GameApp.controllers;
 
-import com.hallak.GameApp.dtos.GameDTO;
-import com.hallak.GameApp.dtos.GameMakeDTO;
+import com.hallak.GameApp.dtos.Game.GameDTO;
+import com.hallak.GameApp.dtos.Game.GameInterServiceDTO;
+import com.hallak.GameApp.dtos.Game.GameMakeDTO;
 import com.hallak.GameApp.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -27,11 +26,11 @@ public class GameController {
         return new ResponseEntity<>(gameService.newGame(dto), HttpStatus.CREATED);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER')")
     @GetMapping
-    public ResponseEntity<List<GameDTO>> findAll(){
+    public ResponseEntity<List<GameInterServiceDTO>> findAll(){
         return new ResponseEntity<>(gameService.findAll(), HttpStatus.OK);
     }
+
 
 
 
