@@ -1,15 +1,7 @@
-package com.hallak.GameApp.dtos.House;
-
-import com.hallak.GameApp.models.BetType;
-import com.hallak.GameApp.models.Game;
-import com.hallak.GameApp.models.Role;
-import jakarta.persistence.*;
+package com.hallak.BetApp.dtos.external;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class HouseFromGISDTO {
 

@@ -1,4 +1,4 @@
-package com.hallak.GameApp.dtos.House;
+package com.hallak.GameApp.dtos.house;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hallak.GameApp.models.Role;

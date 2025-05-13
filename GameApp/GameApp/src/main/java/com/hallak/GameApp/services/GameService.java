@@ -1,9 +1,9 @@
 package com.hallak.GameApp.services;
 
 
-import com.hallak.GameApp.dtos.Game.GameDTO;
-import com.hallak.GameApp.dtos.Game.GameInterServiceDTO;
-import com.hallak.GameApp.dtos.Game.GameMakeDTO;
+import com.hallak.GameApp.dtos.game.GameDTO;
+import com.hallak.GameApp.dtos.game.GameInterServiceDTO;
+import com.hallak.GameApp.dtos.game.GameMakeDTO;
 
 import java.util.List;
 

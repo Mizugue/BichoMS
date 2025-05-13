@@ -1,4 +1,4 @@
-package com.hallak.GameApp.dtos.House;
+package com.hallak.GameApp.dtos.house;
 
 public class HouseRegisterDTO {
 

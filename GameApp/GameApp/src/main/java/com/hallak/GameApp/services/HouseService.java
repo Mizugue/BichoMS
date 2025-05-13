@@ -1,9 +1,9 @@
 package com.hallak.GameApp.services;
 
-import com.hallak.GameApp.dtos.House.HouseDTO;
-import com.hallak.GameApp.dtos.House.HouseOddsDTO;
-import com.hallak.GameApp.dtos.House.HouseRegisterDTO;
-import com.hallak.GameApp.dtos.House.HouseReturnOfRegisterDTO;
+import com.hallak.GameApp.dtos.house.HouseDTO;
+import com.hallak.GameApp.dtos.house.HouseOddsDTO;
+import com.hallak.GameApp.dtos.house.HouseRegisterDTO;
+import com.hallak.GameApp.dtos.house.HouseReturnOfRegisterDTO;
 
 
 public interface HouseService {

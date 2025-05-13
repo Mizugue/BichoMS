@@ -25,12 +25,16 @@ public class Bet {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Bet(Long id, BetType type, List<Integer> values, LocalDateTime date, User user) {
+    private Long gameId;
+
+
+    public Bet(Long id, BetType type, List<Integer> values, LocalDateTime date, User user, Long gameId) {
         this.id = id;
         this.type = type;
         this.values = values;
         this.date = date;
         this.user = user;
+        this.gameId = gameId;
     }
 
     public Bet() {
@@ -76,16 +80,24 @@ public class Bet {
         this.user = user;
     }
 
+    public Long getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(Long gameId) {
+        this.gameId = gameId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Bet bet = (Bet) o;
-        return Objects.equals(id, bet.id) && type == bet.type && Objects.equals(values, bet.values) && Objects.equals(date, bet.date) && Objects.equals(user, bet.user);
+        return Objects.equals(id, bet.id) && type == bet.type && Objects.equals(values, bet.values) && Objects.equals(date, bet.date) && Objects.equals(user, bet.user) && Objects.equals(gameId, bet.gameId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, type, values, date, user);
+        return Objects.hash(id, type, values, date, user, gameId);
     }
 }

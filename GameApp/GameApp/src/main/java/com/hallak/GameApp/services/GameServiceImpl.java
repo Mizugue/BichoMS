@@ -1,17 +1,15 @@
 package com.hallak.GameApp.services;
 
-import com.hallak.GameApp.dtos.Game.GameDTO;
-import com.hallak.GameApp.dtos.Game.GameInterServiceDTO;
-import com.hallak.GameApp.dtos.Game.GameMakeDTO;
-import com.hallak.GameApp.dtos.House.HouseFromGISDTO;
+import com.hallak.GameApp.dtos.game.GameDTO;
+import com.hallak.GameApp.dtos.game.GameInterServiceDTO;
+import com.hallak.GameApp.dtos.game.GameMakeDTO;
+import com.hallak.GameApp.dtos.house.HouseFromGISDTO;
 import com.hallak.GameApp.models.Game;
 import com.hallak.GameApp.repositories.GameRepository;
-import com.hallak.GameApp.repositories.HouseRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class GameServiceImpl implements GameService {
@@ -19,13 +17,13 @@ public class GameServiceImpl implements GameService {
     private final ModelMapper modelMapper;
     private final GameRepository gameRepository;
     private final AuthenticatedHouseService authenticatedHouseService;
-    private final HouseRepository houseRepository;
 
-    public GameServiceImpl(ModelMapper modelMapper, GameRepository gameRepository, AuthenticatedHouseService authenticatedHouseService, HouseRepository houseRepository){
+
+    public GameServiceImpl(ModelMapper modelMapper, GameRepository gameRepository, AuthenticatedHouseService authenticatedHouseService){
         this.modelMapper = modelMapper;
         this.gameRepository = gameRepository;
         this.authenticatedHouseService = authenticatedHouseService;
-        this.houseRepository = houseRepository;
+
     }
 
     @Override

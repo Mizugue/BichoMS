@@ -1,10 +1,10 @@
-package com.hallak.GameApp.dtos.Game;
+package com.hallak.BetApp.dtos.external;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
 
-public class GameDTO {
+public class GameInterServiceDTO {
 
     private Long id;
     private String name;
@@ -14,16 +14,18 @@ public class GameDTO {
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime captureDate;
-    private boolean status;
 
-    public GameDTO(Long id, String name, LocalDateTime creationDate, LocalDateTime captureDate, boolean status) {
+    private HouseFromGISDTO house;
+
+    public GameInterServiceDTO(Long id, String name, LocalDateTime creationDate, LocalDateTime captureDate, HouseFromGISDTO house) {
         this.id = id;
         this.name = name;
         this.creationDate = creationDate;
         this.captureDate = captureDate;
+        this.house = house;
     }
 
-    public GameDTO() {
+    public GameInterServiceDTO() {
     }
 
     public Long getId() {
@@ -58,11 +60,11 @@ public class GameDTO {
         this.captureDate = captureDate;
     }
 
-    public boolean isStatus() {
-        return status;
+    public HouseFromGISDTO getHouse() {
+        return house;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setHouse(HouseFromGISDTO house) {
+        this.house = house;
     }
 }

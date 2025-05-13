@@ -1,10 +1,10 @@
 package com.hallak.GameApp.controllers;
 
-import com.hallak.GameApp.dtos.Game.GameDTO;
-import com.hallak.GameApp.dtos.House.HouseDTO;
-import com.hallak.GameApp.dtos.House.HouseOddsDTO;
-import com.hallak.GameApp.dtos.House.HouseRegisterDTO;
-import com.hallak.GameApp.dtos.House.HouseReturnOfRegisterDTO;
+import com.hallak.GameApp.dtos.game.GameDTO;
+import com.hallak.GameApp.dtos.house.HouseDTO;
+import com.hallak.GameApp.dtos.house.HouseOddsDTO;
+import com.hallak.GameApp.dtos.house.HouseRegisterDTO;
+import com.hallak.GameApp.dtos.house.HouseReturnOfRegisterDTO;
 import com.hallak.GameApp.services.GameService;
 import com.hallak.GameApp.services.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;

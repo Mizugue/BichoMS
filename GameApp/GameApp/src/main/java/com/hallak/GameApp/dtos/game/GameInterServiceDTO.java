@@ -1,7 +1,7 @@
-package com.hallak.GameApp.dtos.Game;
+package com.hallak.GameApp.dtos.game;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.hallak.GameApp.dtos.House.HouseFromGISDTO;
+import com.hallak.GameApp.dtos.house.HouseFromGISDTO;
 
 import java.time.LocalDateTime;
 

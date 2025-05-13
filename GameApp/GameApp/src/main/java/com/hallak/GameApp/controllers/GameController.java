@@ -1,8 +1,8 @@
 package com.hallak.GameApp.controllers;
 
-import com.hallak.GameApp.dtos.Game.GameDTO;
-import com.hallak.GameApp.dtos.Game.GameInterServiceDTO;
-import com.hallak.GameApp.dtos.Game.GameMakeDTO;
+import com.hallak.GameApp.dtos.game.GameDTO;
+import com.hallak.GameApp.dtos.game.GameInterServiceDTO;
+import com.hallak.GameApp.dtos.game.GameMakeDTO;
 import com.hallak.GameApp.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
