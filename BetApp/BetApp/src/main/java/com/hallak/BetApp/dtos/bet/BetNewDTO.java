@@ -16,6 +16,9 @@ public class BetNewDTO {
         this.gameId = gameId;
     }
 
+    public BetNewDTO() {
+    }
+
     public BetType getType() {
         return type;
     }

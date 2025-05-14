@@ -31,6 +31,10 @@ public class GameController {
         return new ResponseEntity<>(gameService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<GameInterServiceDTO> findById(@PathVariable Long id){
+        return new ResponseEntity<>(gameService.findById(id), HttpStatus.OK);
+    }
 
 
 

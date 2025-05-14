@@ -53,4 +53,9 @@ public class GameServiceImpl implements GameService {
             }).toList();
     }
 
+    @Override
+    public GameInterServiceDTO findById(Long id) {
+        return modelMapper.map(gameRepository.findById(id), GameInterServiceDTO.class);
+    }
+
 }

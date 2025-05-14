@@ -20,7 +20,7 @@ public class BetController {
     private BetService betService;
 
     @PreAuthorize("hasAnyRole('USER')")
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<BetReturnOfNewDTO> newBet(@RequestBody BetNewDTO betDTO){
         return new ResponseEntity<>(betService.newBet(betDTO), HttpStatus.CREATED);
     }
@@ -29,6 +29,10 @@ public class BetController {
     public ResponseEntity<List<GameInterServiceDTO>> findAllGames(){
         return new ResponseEntity<>(betService.findAllGames(), HttpStatus.OK);
     }
+
+
+
+
 
 
 }

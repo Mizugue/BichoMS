@@ -2,6 +2,7 @@ package com.hallak.BetApp.dtos.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hallak.BetApp.dtos.bet.BetDTO;
+import com.hallak.BetApp.dtos.bet.BetNewDTO;
 import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
 import com.hallak.BetApp.models.Bet;
 import com.hallak.BetApp.models.Role;
@@ -18,11 +19,11 @@ public class UserDTO {
     @JsonIgnore
     private String password;
 
-    private Set<BetReturnOfNewDTO> bets;
+    private Set<BetNewDTO> bets;
 
     private Set<Role> roles = new HashSet<>();
 
-    public UserDTO(String email, String username, String password, Set<BetReturnOfNewDTO> bets, Set<Role> roles) {
+    public UserDTO(String email, String username, String password, Set<BetNewDTO> bets, Set<Role> roles) {
         this.email = email;
         this.username = username;
         this.password = password;
@@ -57,11 +58,11 @@ public class UserDTO {
         this.password = password;
     }
 
-    public Set<BetReturnOfNewDTO> getBets() {
+    public Set<BetNewDTO> getBets() {
         return bets;
     }
 
-    public void setBets(Set<BetReturnOfNewDTO> bets) {
+    public void setBets(Set<BetNewDTO> bets) {
         this.bets = bets;
     }
 

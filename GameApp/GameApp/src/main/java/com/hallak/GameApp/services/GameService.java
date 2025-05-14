@@ -13,6 +13,7 @@ public interface GameService {
     GameDTO newGame(GameMakeDTO dto);
     List<GameDTO> findAllMy();
     List<GameInterServiceDTO> findAll();
+    GameInterServiceDTO findById(Long id);
 
 
 }

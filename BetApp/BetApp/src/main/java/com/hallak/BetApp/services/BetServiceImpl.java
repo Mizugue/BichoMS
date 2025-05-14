@@ -8,10 +8,12 @@ import com.hallak.BetApp.models.Bet;
 import com.hallak.BetApp.repositories.BetRepository;
 import feign.FeignException;
 import org.modelmapper.ModelMapper;
+import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BetServiceImpl implements BetService{
@@ -30,17 +32,32 @@ public class BetServiceImpl implements BetService{
 
     @Override
     public BetReturnOfNewDTO newBet(BetNewDTO betDTO) {
-        Bet bet = modelMapper.map(betDTO, Bet.class);
+        Bet bet = new Bet();
+        bet.setType(betDTO.getType());
+        bet.setValues(betDTO.getValues());
         bet.setDate(LocalDateTime.now());
         bet.setUser(authenticatedUserService.authenticated());
-        // Aqui falta a verificacao com outro metodo da interface!
+
+        GameInterServiceDTO gameInterServiceDTO = gameFeignClient.findGameById(betDTO.getGameId());
+        if (gameInterServiceDTO == null) {
+            throw new DataAccessResourceFailureException("GameId " + betDTO.getGameId() + " is invalid or not found.");
+        }
         bet.setGameId(betDTO.getGameId());
-        return modelMapper.map(betRepository.save(bet), BetReturnOfNewDTO.class);
+
+        BetReturnOfNewDTO betThatReturn = modelMapper.map(betRepository.save(bet), BetReturnOfNewDTO.class);
+        betThatReturn.setGame(gameFeignClient.findGameById(betDTO.getGameId()));
+        return betThatReturn;
     }
+
 
 
     @Override
     public List<GameInterServiceDTO> findAllGames() {
         return gameFeignClient.findAllGames();
+    }
+
+    @Override
+    public GameInterServiceDTO findGameById(Long id) {
+        return gameFeignClient.findGameById(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.hallak.BetApp.dtos.bet;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
 import com.hallak.BetApp.models.BetType;
 
 import java.time.LocalDateTime;
@@ -12,11 +13,13 @@ public class BetReturnOfNewDTO {
     private List<Integer> values;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime date;
+    private GameInterServiceDTO game;
 
-    public BetReturnOfNewDTO(BetType type, List<Integer> values, LocalDateTime date) {
+    public BetReturnOfNewDTO(BetType type, List<Integer> values, LocalDateTime date, GameInterServiceDTO game) {
         this.type = type;
         this.values = values;
         this.date = date;
+        this.game = game;
     }
 
     public BetReturnOfNewDTO() {
@@ -44,5 +47,13 @@ public class BetReturnOfNewDTO {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    public GameInterServiceDTO getGame() {
+        return game;
+    }
+
+    public void setGame(GameInterServiceDTO game) {
+        this.game = game;
     }
 }
