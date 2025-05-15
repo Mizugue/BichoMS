@@ -13,13 +13,15 @@ public class BetReturnOfNewDTO {
     private List<Integer> values;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime date;
+    private Double amount;
     private GameInterServiceDTO game;
 
-    public BetReturnOfNewDTO(BetType type, List<Integer> values, LocalDateTime date, GameInterServiceDTO game) {
+    public BetReturnOfNewDTO(BetType type, List<Integer> values, LocalDateTime date, GameInterServiceDTO game, Double amount) {
         this.type = type;
         this.values = values;
         this.date = date;
         this.game = game;
+        this.amount = amount;
     }
 
     public BetReturnOfNewDTO() {
@@ -55,5 +57,13 @@ public class BetReturnOfNewDTO {
 
     public void setGame(GameInterServiceDTO game) {
         this.game = game;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 }

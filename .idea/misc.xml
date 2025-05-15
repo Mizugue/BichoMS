@@ -11,7 +11,14 @@
         <option value="$PROJECT_DIR$/ConfigApp/ConfigApp/pom.xml" />
         <option value="$PROJECT_DIR$/GameApp/GameApp/pom.xml" />
         <option value="$PROJECT_DIR$/BetApp/BetApp/pom.xml" />
+        <option value="$PROJECT_DIR$/EurekaApp/pom.xml" />
+        <option value="$PROJECT_DIR$/EurekaApp/EurekaApp/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/EurekaApp/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">

@@ -1,10 +1,7 @@
 package com.hallak.BetApp.dtos.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.hallak.BetApp.dtos.bet.BetDTO;
 import com.hallak.BetApp.dtos.bet.BetNewDTO;
-import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
-import com.hallak.BetApp.models.Bet;
 import com.hallak.BetApp.models.Role;
 
 import java.util.HashSet;

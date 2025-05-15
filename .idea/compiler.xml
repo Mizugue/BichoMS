@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="GameApp" />
         <module name="ConfigApp" />
+        <module name="eurekaApp" />
       </profile>
       <profile name="Annotation profile for jogoApp" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -40,6 +41,7 @@
       <module name="GameApp" options="-parameters" />
       <module name="JogoApp" options="-parameters" />
       <module name="ResultApp" options="-parameters" />
+      <module name="eurekaApp" options="-parameters" />
     </option>
   </component>
 </project>

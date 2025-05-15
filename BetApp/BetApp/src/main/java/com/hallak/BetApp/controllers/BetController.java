@@ -1,6 +1,6 @@
 package com.hallak.BetApp.controllers;
 
-import com.hallak.BetApp.dtos.bet.BetDTO;
+
 import com.hallak.BetApp.dtos.bet.BetNewDTO;
 import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
 import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
@@ -25,10 +25,6 @@ public class BetController {
         return new ResponseEntity<>(betService.newBet(betDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public ResponseEntity<List<GameInterServiceDTO>> findAllGames(){
-        return new ResponseEntity<>(betService.findAllGames(), HttpStatus.OK);
-    }
 
 
 

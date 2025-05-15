@@ -9,11 +9,13 @@ public class BetNewDTO {
     private BetType type;
     private List<Integer> values;
     private Long gameId;
+    private Double amount;
 
-    public BetNewDTO(BetType type, List<Integer> values, Long gameId) {
+    public BetNewDTO(BetType type, List<Integer> values, Long gameId, Double amount) {
         this.type = type;
         this.values = values;
         this.gameId = gameId;
+        this.amount = amount;
     }
 
     public BetNewDTO() {
@@ -41,5 +43,13 @@ public class BetNewDTO {
 
     public void setGameId(Long gameId) {
         this.gameId = gameId;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 }

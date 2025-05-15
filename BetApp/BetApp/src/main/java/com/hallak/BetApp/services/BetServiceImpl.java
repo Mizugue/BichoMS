@@ -1,19 +1,17 @@
 package com.hallak.BetApp.services;
 
-import com.hallak.BetApp.dtos.bet.BetDTO;
+
 import com.hallak.BetApp.dtos.bet.BetNewDTO;
 import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
 import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
 import com.hallak.BetApp.models.Bet;
 import com.hallak.BetApp.repositories.BetRepository;
-import feign.FeignException;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class BetServiceImpl implements BetService{
@@ -33,6 +31,7 @@ public class BetServiceImpl implements BetService{
     @Override
     public BetReturnOfNewDTO newBet(BetNewDTO betDTO) {
         Bet bet = new Bet();
+        bet.setAmount(betDTO.getAmount());
         bet.setType(betDTO.getType());
         bet.setValues(betDTO.getValues());
         bet.setDate(LocalDateTime.now());

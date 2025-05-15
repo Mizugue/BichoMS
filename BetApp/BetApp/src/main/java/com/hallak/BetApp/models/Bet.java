@@ -27,14 +27,17 @@ public class Bet {
 
     private Long gameId;
 
+    private Double amount;
 
-    public Bet(Long id, BetType type, List<Integer> values, LocalDateTime date, User user, Long gameId) {
+
+    public Bet(Long id, BetType type, List<Integer> values, LocalDateTime date, User user, Long gameId, Double amount) {
         this.id = id;
         this.type = type;
         this.values = values;
         this.date = date;
         this.user = user;
         this.gameId = gameId;
+        this.amount = amount;
     }
 
     public Bet() {
@@ -88,16 +91,14 @@ public class Bet {
         this.gameId = gameId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Bet bet = (Bet) o;
-        return Objects.equals(id, bet.id) && type == bet.type && Objects.equals(values, bet.values) && Objects.equals(date, bet.date) && Objects.equals(user, bet.user) && Objects.equals(gameId, bet.gameId);
+    public Double getAmount() {
+        return amount;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, type, values, date, user, gameId);
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
+
+
+
 }

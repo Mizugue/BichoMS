@@ -26,6 +26,7 @@ public class Game {
         this.creationDate = creationDate;
         this.captureDate = captureDate;
         this.house = house;
+        this.status = status;
     }
 
     public Game() {
