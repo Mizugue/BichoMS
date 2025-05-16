@@ -6,7 +6,9 @@ import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
 import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
 import com.hallak.BetApp.models.Bet;
 import com.hallak.BetApp.repositories.BetRepository;
+import com.netflix.discovery.converters.Auto;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
@@ -21,6 +23,7 @@ public class BetServiceImpl implements BetService{
     private final AuthenticatedUserService authenticatedUserService;
     private final GameFeignClient gameFeignClient;
 
+    @Autowired
     public BetServiceImpl(BetRepository betRepository, ModelMapper modelMapper, AuthenticatedUserService authenticatedUserService, GameFeignClient gameFeignClient){
         this.betRepository = betRepository;
         this.modelMapper = modelMapper;
