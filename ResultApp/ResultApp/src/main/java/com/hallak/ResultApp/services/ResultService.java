@@ -2,6 +2,10 @@ package com.hallak.ResultApp.services;
 
 import com.hallak.ResultApp.dtos.ResultDTO;
 
+import java.util.List;
+
 public interface ResultService {
-    ResultDTO getNewResult();
+    List<ResultDTO> getNewResults();
+    List<ResultDTO> getResults();
+    ResultDTO getResultsByGameId(Long id);
 }

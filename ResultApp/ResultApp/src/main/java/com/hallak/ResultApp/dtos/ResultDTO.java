@@ -13,6 +13,8 @@ public class ResultDTO {
     private String fifth;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime date;
+    private GameInterServiceDTO game;
+
 
     public ResultDTO(String first, String second, String third, String fourth, String fifth, LocalDateTime date) {
         this.first = first;
@@ -76,4 +78,11 @@ public class ResultDTO {
         this.date = date;
     }
 
+    public GameInterServiceDTO getGame() {
+        return game;
+    }
+
+    public void setGame(GameInterServiceDTO game) {
+        this.game = game;
+    }
 }

@@ -6,13 +6,13 @@ import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
 import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
 import com.hallak.BetApp.models.Bet;
 import com.hallak.BetApp.repositories.BetRepository;
-import com.netflix.discovery.converters.Auto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -61,5 +61,20 @@ public class BetServiceImpl implements BetService{
     @Override
     public GameInterServiceDTO findGameById(Long id) {
         return gameFeignClient.findGameById(id);
+    }
+
+    @Override
+    public BetReturnOfNewDTO findById(Long id) {
+        Optional<BetReturnOfNewDTO> betDTO = betRepository.findById(id).map(x -> modelMapper.map(x, BetReturnOfNewDTO.class));
+        if (betDTO.isPresent()){
+            betDTO.get().setGame(gameFeignClient.findGameById(betDTO.get().getGame().getId()));
+            return betDTO.get();
+        } else {
+            throw new DataAccessResourceFailureException("BetId " + id + " is invalid or not found.");
+        }
+
+
+
+
     }
 }

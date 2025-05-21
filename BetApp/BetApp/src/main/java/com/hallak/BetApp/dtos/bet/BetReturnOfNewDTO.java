@@ -16,12 +16,12 @@ public class BetReturnOfNewDTO {
     private Double amount;
     private GameInterServiceDTO game;
 
-    public BetReturnOfNewDTO(BetType type, List<Integer> values, LocalDateTime date, GameInterServiceDTO game, Double amount) {
+    public BetReturnOfNewDTO(BetType type, List<Integer> values, LocalDateTime date, Double amount, GameInterServiceDTO game) {
         this.type = type;
         this.values = values;
         this.date = date;
-        this.game = game;
         this.amount = amount;
+        this.game = game;
     }
 
     public BetReturnOfNewDTO() {
@@ -66,4 +66,6 @@ public class BetReturnOfNewDTO {
     public void setAmount(Double amount) {
         this.amount = amount;
     }
+
+
 }

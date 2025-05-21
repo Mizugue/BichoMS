@@ -1,6 +1,7 @@
-package com.hallak.BetApp.services;
+package com.hallak.ResultApp.services;
 
-import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
+
+import com.hallak.ResultApp.dtos.GameInterServiceDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,13 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 @FeignClient(name = "jogoapp-service")
-//url = "http://localhost:1000")
 public interface GameFeignClient {
 
-    @GetMapping
-    List<GameInterServiceDTO> findAllGames();
+    @GetMapping(value = "/data-ex")
+    List<GameInterServiceDTO> findAllGamesExpired();
 
     @GetMapping(value = "/{id}")
     GameInterServiceDTO findGameById(@PathVariable Long id);
+
 
 }

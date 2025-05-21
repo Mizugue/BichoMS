@@ -9,6 +9,7 @@ import com.hallak.GameApp.repositories.GameRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -56,6 +57,20 @@ public class GameServiceImpl implements GameService {
     @Override
     public GameInterServiceDTO findById(Long id) {
         return modelMapper.map(gameRepository.findById(id), GameInterServiceDTO.class);
+    }
+
+    @Override
+    public List<GameInterServiceDTO> findAllExpiredGames() {
+        List<Game> gamesExpired = gameRepository.findByCaptureDateLessThanEqualAndStatusIsTrue(LocalDateTime.now());
+        List <Game> gamesThatNowAreExpired = new ArrayList<>();
+
+        for (Game game : gamesExpired){
+            game.setStatus(false);
+            gamesThatNowAreExpired.add(game);
+        }
+        gameRepository.saveAll(gamesThatNowAreExpired);
+
+        return gamesExpired.stream().map(x -> modelMapper.map(x, GameInterServiceDTO.class)).toList();
     }
 
 }

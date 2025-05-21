@@ -18,9 +18,10 @@ public class Result {
     private String fourth;
     private String fifth;
     private LocalDateTime date;
+    private Long gameId;
 
 
-    public Result(Long id, String first, String second, String third, String fourth, String fifth, LocalDateTime date) {
+    public Result(Long id, String first, String second, String third, String fourth, String fifth, LocalDateTime date, Long gameId) {
         this.id = id;
         this.first = first;
         this.second = second;
@@ -28,6 +29,7 @@ public class Result {
         this.fourth = fourth;
         this.fifth = fifth;
         this.date = date;
+        this.gameId = gameId;
     }
 
     public Result() {
@@ -89,4 +91,11 @@ public class Result {
         this.date = date;
     }
 
+    public Long getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(Long gameId) {
+        this.gameId = gameId;
+    }
 }

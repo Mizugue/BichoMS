@@ -1,4 +1,4 @@
-package com.hallak.ResultApp.dtos;
+package com.hallak.SettlementApp.dtos;
 
 public class HouseFromGISDTO {
 

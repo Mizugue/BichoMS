@@ -25,6 +25,11 @@ public class BetController {
         return new ResponseEntity<>(betService.newBet(betDTO), HttpStatus.CREATED);
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<BetReturnOfNewDTO> findById(@PathVariable Long id){
+        return new ResponseEntity<>(betService.findById(id), HttpStatus.OK);
+    }
+
 
 
 

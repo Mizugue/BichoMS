@@ -14,6 +14,7 @@ public interface GameService {
     List<GameDTO> findAllMy();
     List<GameInterServiceDTO> findAll();
     GameInterServiceDTO findById(Long id);
+    List<GameInterServiceDTO> findAllExpiredGames();
 
 
 }

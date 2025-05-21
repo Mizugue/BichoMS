@@ -1,4 +1,4 @@
-package com.hallak.ResultApp;
+package com.hallak.SettlementApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class ResultApplication {
+public class SettlementAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ResultApplication.class, args);
+		SpringApplication.run(SettlementAppApplication.class, args);
 	}
 
 }

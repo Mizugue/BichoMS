@@ -1,2 +1,23 @@
-package com.hallak.SettlementApp.dtos;public enum BetType {
+package com.hallak.SettlementApp.dtos;
+
+public enum BetType {
+    MILHAR_SECA,
+    MILHAR_CERCADA,
+    MILHAR_INVERTIDADA,
+    CENTENA_SECA,
+    CENTENA_CERCADA,
+    CENTENA_INVERTIDA,
+    DEZENA_SECA,
+    DEZENA_CERCADA,
+    DEZENA_INVERTIDA,
+    DUQUE_DE_DEZENA,
+    TERNO_DE_DEZENA,
+    GRUPO_SECO,
+    GRUPO_CERCADO,
+    DUPLA_DE_GRUPO_SECO,
+    DUPLA_DE_GRUPO_CERCADO,
+    TERNO_DE_GRUPO_SECO,
+    TERNO_DE_GRUPO_CERCADO,
+    PASSE,
+    PASSE_INVERTIDO;
 }

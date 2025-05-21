@@ -36,6 +36,11 @@ public class GameController {
         return new ResponseEntity<>(gameService.findById(id), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/data-ex")
+    public ResponseEntity<List<GameInterServiceDTO>> findAllExpiredGames(){
+        return new ResponseEntity<>(gameService.findAllExpiredGames(), HttpStatus.OK);
+    }
+
 
 
 

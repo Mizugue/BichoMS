@@ -1,7 +1,6 @@
-package com.hallak.ResultApp.dtos;
+package com.hallak.SettlementApp.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 
 import java.time.LocalDateTime;
 

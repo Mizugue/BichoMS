@@ -1,7 +1,7 @@
 INSERT INTO tb_house(username, password) VALUES ('casa1', '$2a$12$AlnbeLG./9yRd4UVGkpRu.NaBKVnRRv/DdOyX2JYq.kTpNEH1EnkC');
 INSERT INTO tb_house(username, password) VALUES ('casa2', '$2a$12$AlnbeLG./9yRd4UVGkpRu.NaBKVnRRv/DdOyX2JYq.kTpNEH1EnkC');
 INSERT INTO tb_game(name, creation_date, capture_date, status, house_id)VALUES ('Game 1', '2025-05-08T14:00:00', '2025-05-09T12:00:00', true, 1);
-INSERT INTO tb_game(name, creation_date, capture_date, status, house_id)VALUES ('Game 2', '2025-05-08T15:00:00', '2025-05-09T13:00:00', false, 2);
+INSERT INTO tb_game(name, creation_date, capture_date, status, house_id)VALUES ('Game 2', '2025-05-08T15:00:00', '2025-05-09T13:00:00', true, 2);
 INSERT INTO house_odds(house_id, bet_type, value) VALUES (1, 'MILHAR_SECA', 1.5);
 INSERT INTO house_odds(house_id, bet_type, value) VALUES (1, 'MILHAR_CERCADA', 2.0);
 INSERT INTO house_odds(house_id, bet_type, value) VALUES (2, 'MILHAR_SECA', 1.8);

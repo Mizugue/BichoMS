@@ -9,8 +9,9 @@
         <module name="GameApp" />
         <module name="ConfigApp" />
         <module name="eurekaApp" />
+        <module name="SettlementApp" />
       </profile>
-      <profile name="Annotation profile for BetApp" enabled="true">
+      <profile name="Annotation profile for jogoApp" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -32,6 +33,7 @@
       <module name="GameApp" options="-parameters" />
       <module name="JogoApp" options="-parameters" />
       <module name="ResultApp" options="-parameters" />
+      <module name="SettlementApp" options="-parameters" />
       <module name="eurekaApp" options="-parameters" />
     </option>
   </component>

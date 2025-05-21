@@ -1,4 +1,4 @@
-package com.hallak.BetApp.util;
+package com.hallak.SettlementApp.util;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
