@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class GameInterServiceDTO {
 
@@ -67,5 +68,18 @@ public class GameInterServiceDTO {
 
     public void setHouse(HouseFromGISDTO house) {
         this.house = house;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameInterServiceDTO that = (GameInterServiceDTO) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(creationDate, that.creationDate) && Objects.equals(captureDate, that.captureDate) && Objects.equals(house, that.house);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, creationDate, captureDate, house);
     }
 }

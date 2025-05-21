@@ -17,4 +17,7 @@ public interface GameFeignClient {
     @GetMapping(value = "/{id}")
     GameInterServiceDTO findGameById(@PathVariable Long id);
 
+    @GetMapping(value = "/data-ex")
+    List<GameInterServiceDTO> findAllGamesExpired();
+
 }

@@ -41,6 +41,11 @@ public class GameController {
         return new ResponseEntity<>(gameService.findAllExpiredGames(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/data-com")
+    public ResponseEntity<List<GameInterServiceDTO>> findAllValidGames(){
+        return new ResponseEntity<>(gameService.findAllValidGames(), HttpStatus.OK);
+    }
+
 
 
 

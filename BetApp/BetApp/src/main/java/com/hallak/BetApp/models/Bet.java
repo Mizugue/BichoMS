@@ -17,7 +17,7 @@ public class Bet {
     @Enumerated(EnumType.STRING)
     private BetType type;
 
-    private List<Integer> values;
+    private List<String> values;
 
     private LocalDateTime date;
 
@@ -30,7 +30,7 @@ public class Bet {
     private Double amount;
 
 
-    public Bet(Long id, BetType type, List<Integer> values, LocalDateTime date, User user, Long gameId, Double amount) {
+    public Bet(Long id, BetType type, List<String> values, LocalDateTime date, User user, Long gameId, Double amount) {
         this.id = id;
         this.type = type;
         this.values = values;
@@ -59,11 +59,11 @@ public class Bet {
         this.type = type;
     }
 
-    public List<Integer> getValues() {
+    public List<String> getValues() {
         return values;
     }
 
-    public void setValues(List<Integer> values) {
+    public void setValues(List<String> values) {
         this.values = values;
     }
 

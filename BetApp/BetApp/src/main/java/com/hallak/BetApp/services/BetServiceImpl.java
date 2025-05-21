@@ -33,21 +33,22 @@ public class BetServiceImpl implements BetService{
 
     @Override
     public BetReturnOfNewDTO newBet(BetNewDTO betDTO) {
+        GameInterServiceDTO gameInterServiceDTO = gameFeignClient.findGameById(betDTO.getGameId());
+        if (gameInterServiceDTO == null || gameInterServiceDTO.getCaptureDate().isBefore(LocalDateTime.now())) {
+            throw new DataAccessResourceFailureException("GameId " + betDTO.getGameId() + " is invalid, expired, or not found.");
+        }
+
         Bet bet = new Bet();
         bet.setAmount(betDTO.getAmount());
         bet.setType(betDTO.getType());
         bet.setValues(betDTO.getValues());
         bet.setDate(LocalDateTime.now());
         bet.setUser(authenticatedUserService.authenticated());
-
-        GameInterServiceDTO gameInterServiceDTO = gameFeignClient.findGameById(betDTO.getGameId());
-        if (gameInterServiceDTO == null) {
-            throw new DataAccessResourceFailureException("GameId " + betDTO.getGameId() + " is invalid or not found.");
-        }
         bet.setGameId(betDTO.getGameId());
 
         BetReturnOfNewDTO betThatReturn = modelMapper.map(betRepository.save(bet), BetReturnOfNewDTO.class);
         betThatReturn.setGame(gameFeignClient.findGameById(betDTO.getGameId()));
+
         return betThatReturn;
     }
 

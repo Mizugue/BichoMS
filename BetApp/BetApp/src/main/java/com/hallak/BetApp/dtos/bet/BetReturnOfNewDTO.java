@@ -10,13 +10,13 @@ import java.util.List;
 public class BetReturnOfNewDTO {
 
     private BetType type;
-    private List<Integer> values;
+    private List<String> values;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime date;
     private Double amount;
     private GameInterServiceDTO game;
 
-    public BetReturnOfNewDTO(BetType type, List<Integer> values, LocalDateTime date, Double amount, GameInterServiceDTO game) {
+    public BetReturnOfNewDTO(BetType type, List<String> values, LocalDateTime date, Double amount, GameInterServiceDTO game) {
         this.type = type;
         this.values = values;
         this.date = date;
@@ -35,11 +35,11 @@ public class BetReturnOfNewDTO {
         this.type = type;
     }
 
-    public List<Integer> getValues() {
+    public List<String> getValues() {
         return values;
     }
 
-    public void setValues(List<Integer> values) {
+    public void setValues(List<String> values) {
         this.values = values;
     }
 

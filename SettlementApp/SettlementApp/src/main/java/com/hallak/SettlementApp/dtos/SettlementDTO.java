@@ -10,17 +10,17 @@ public class SettlementDTO {
 
     private BetType type;
     private FinalBetStatus finalBetStatus;
-    private List<Integer> values;
+    private List<String> consideredValues;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime date;
     private Double amount;
     private GameInterServiceDTO game;
 
 
-    public SettlementDTO(BetType type, FinalBetStatus finalBetStatus, List<Integer> values, LocalDateTime date, Double amount, GameInterServiceDTO game) {
+    public SettlementDTO(BetType type, FinalBetStatus finalBetStatus, List<String> consideredValues, LocalDateTime date, Double amount, GameInterServiceDTO game) {
         this.type = type;
         this.finalBetStatus = finalBetStatus;
-        this.values = values;
+        this.consideredValues = consideredValues;
         this.date = date;
         this.amount = amount;
         this.game = game;
@@ -37,12 +37,12 @@ public class SettlementDTO {
         this.type = type;
     }
 
-    public List<Integer> getValues() {
-        return values;
+    public List<String> getConsideredValues() {
+        return consideredValues;
     }
 
-    public void setValues(List<Integer> values) {
-        this.values = values;
+    public void setConsideredValues(List<String> consideredValues) {
+        this.consideredValues = consideredValues;
     }
 
     public LocalDateTime getDate() {

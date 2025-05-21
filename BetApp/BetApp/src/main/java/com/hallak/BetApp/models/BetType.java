@@ -3,7 +3,7 @@ package com.hallak.BetApp.models;
 public enum BetType {
     MILHAR_SECA,
     MILHAR_CERCADA,
-    MILHAR_INVERTIDADA,
+    MILHAR_INVERTIDA,
     CENTENA_SECA,
     CENTENA_CERCADA,
     CENTENA_INVERTIDA,

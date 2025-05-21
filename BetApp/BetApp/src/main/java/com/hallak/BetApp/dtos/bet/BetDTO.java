@@ -11,12 +11,12 @@ public class BetDTO {
 
     private Long id;
     private BetType type;
-    private List<Integer> values;
+    private List<String> values;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime date;
     private User user;
 
-    public BetDTO(Long id, BetType type, List<Integer> values, LocalDateTime date, User user) {
+    public BetDTO(Long id, BetType type, List<String> values, LocalDateTime date, User user) {
         this.id = id;
         this.type = type;
         this.values = values;
@@ -43,11 +43,11 @@ public class BetDTO {
         this.type = type;
     }
 
-    public List<Integer> getValues() {
+    public List<String> getValues() {
         return values;
     }
 
-    public void setValues(List<Integer> values) {
+    public void setValues(List<String> values) {
         this.values = values;
     }
 

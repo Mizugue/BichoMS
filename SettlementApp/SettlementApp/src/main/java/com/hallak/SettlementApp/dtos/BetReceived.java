@@ -8,13 +8,13 @@ import java.util.List;
 public class BetReceived {
 
     private BetType type;
-    private List<Integer> values;
+    private List<String> values;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime date;
     private Double amount;
     private GameInterServiceDTO game;
 
-    public BetReceived(BetType type, List<Integer> values, LocalDateTime date, Double amount, GameInterServiceDTO game) {
+    public BetReceived(BetType type, List<String> values, LocalDateTime date, Double amount, GameInterServiceDTO game) {
         this.type = type;
         this.values = values;
         this.date = date;
@@ -33,11 +33,11 @@ public class BetReceived {
         this.type = type;
     }
 
-    public List<Integer> getValues() {
+    public List<String> getValues() {
         return values;
     }
 
-    public void setValues(List<Integer> values) {
+    public void setValues(List<String> values) {
         this.values = values;
     }
 
@@ -63,5 +63,16 @@ public class BetReceived {
 
     public void setGame(GameInterServiceDTO game) {
         this.game = game;
+    }
+
+    @Override
+    public String toString() {
+        return "BetReceived{" +
+                "type=" + type +
+                ", values=" + values +
+                ", date=" + date +
+                ", amount=" + amount +
+                ", game=" + game.getName() +
+                '}';
     }
 }

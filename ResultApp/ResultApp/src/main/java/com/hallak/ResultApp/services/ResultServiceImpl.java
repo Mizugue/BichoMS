@@ -35,9 +35,11 @@ public class ResultServiceImpl implements ResultService{
         List<ResultDTO> resultDTOS = new ArrayList<>();
 
         for (GameInterServiceDTO game : gamesExpired) {
-            Result result = modelMapper.map(ResultUtils.getNewResult(), Result.class);
-            result.setGameId(game.getId());
-            results.add(result);
+            if (!resultRepository.existsByGameId(game.getId())) {
+                Result result = modelMapper.map(ResultUtils.getNewResult(), Result.class);
+                result.setGameId(game.getId());
+                results.add(result);
+            }
         }
 
         resultRepository.saveAll(results);

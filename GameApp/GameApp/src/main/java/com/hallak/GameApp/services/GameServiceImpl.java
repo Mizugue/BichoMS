@@ -61,8 +61,8 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public List<GameInterServiceDTO> findAllExpiredGames() {
-        List<Game> gamesExpired = gameRepository.findByCaptureDateLessThanEqualAndStatusIsTrue(LocalDateTime.now());
-        List <Game> gamesThatNowAreExpired = new ArrayList<>();
+        List<Game> gamesExpired = gameRepository.findByCaptureDateLessThanEqual(LocalDateTime.now());
+        List<Game> gamesThatNowAreExpired = new ArrayList<>();
 
         for (Game game : gamesExpired){
             game.setStatus(false);
@@ -71,6 +71,11 @@ public class GameServiceImpl implements GameService {
         gameRepository.saveAll(gamesThatNowAreExpired);
 
         return gamesExpired.stream().map(x -> modelMapper.map(x, GameInterServiceDTO.class)).toList();
+    }
+
+    @Override
+    public List<GameInterServiceDTO> findAllValidGames() {
+        return gameRepository.findByCaptureDateAfter(LocalDateTime.now()).stream().map(x -> modelMapper.map(x, GameInterServiceDTO.class)).toList();
     }
 
 }

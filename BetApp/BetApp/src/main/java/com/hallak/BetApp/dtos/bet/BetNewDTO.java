@@ -7,11 +7,11 @@ import java.util.List;
 public class BetNewDTO {
 
     private BetType type;
-    private List<Integer> values;
+    private List<String> values;
     private Long gameId;
     private Double amount;
 
-    public BetNewDTO(BetType type, List<Integer> values, Long gameId, Double amount) {
+    public BetNewDTO(BetType type, List<String> values, Long gameId, Double amount) {
         this.type = type;
         this.values = values;
         this.gameId = gameId;
@@ -29,11 +29,11 @@ public class BetNewDTO {
         this.type = type;
     }
 
-    public List<Integer> getValues() {
+    public List<String> getValues() {
         return values;
     }
 
-    public void setValues(List<Integer> values) {
+    public void setValues(List<String> values) {
         this.values = values;
     }
 

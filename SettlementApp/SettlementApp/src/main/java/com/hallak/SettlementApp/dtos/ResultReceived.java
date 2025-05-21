@@ -83,4 +83,17 @@ public class ResultReceived {
     public void setGame(GameInterServiceDTO game) {
         this.game = game;
     }
+
+    @Override
+    public String toString() {
+        return "ResultReceived{" +
+                "first='" + first + '\'' +
+                ", second='" + second + '\'' +
+                ", third='" + third + '\'' +
+                ", fourth='" + fourth + '\'' +
+                ", fifth='" + fifth + '\'' +
+                ", date=" + date +
+                ", game=" + game.getName() +
+                '}';
+    }
 }

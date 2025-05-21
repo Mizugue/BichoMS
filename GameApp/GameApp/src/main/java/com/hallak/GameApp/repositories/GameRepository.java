@@ -16,7 +16,9 @@ public interface GameRepository extends JpaRepository<Game, Long> {
     @Query("SELECT g FROM Game g JOIN FETCH g.house")
     List<Game> findAllWithHouse();
 
-    List<Game> findByCaptureDateLessThanEqualAndStatusIsTrue(LocalDateTime now);
+    List<Game> findByCaptureDateLessThanEqual(LocalDateTime now);
+
+    List<Game> findByCaptureDateAfter(LocalDateTime now);
 
 
 
