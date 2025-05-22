@@ -16,20 +16,26 @@ public class HandlerOfSettlement {
             return HandlerOfProcess.processMilharSeca(bet, result);
         } else if (bet.getType() == BetType.MILHAR_CERCADA) {
             return HandlerOfProcess.processMilharCercada(bet, result);
-        } else if (bet.getType() == BetType.MILHAR_INVERTIDA) {
-            return HandlerOfProcess.processMilharInvertida(bet, result);
+        } else if (bet.getType() == BetType.MILHAR_INVERTIDA_SECA) {
+            return HandlerOfProcess.processMilharInvertidaSeca(bet, result);
+        } else if (bet.getType() == BetType.MILHAR_INVERTIDA_CERCADA){
+            return HandlerOfProcess.processMilharInvertidaCercada(bet , result);
         } else if (bet.getType() == BetType.CENTENA_SECA) {
             return HandlerOfProcess.processCentenaSeca(bet, result);
         } else if (bet.getType() == BetType.CENTENA_CERCADA) {
             return HandlerOfProcess.processCentenaCercada(bet, result);
-        } else if (bet.getType() == BetType.CENTENA_INVERTIDA) {
-            return HandlerOfProcess.processCentenaInvertida(bet, result);
+        } else if (bet.getType() == BetType.CENTENA_INVERTIDA_SECA) {
+            return HandlerOfProcess.processCentenaInvertidaSeca(bet, result);
+        } else if (bet.getType() == BetType.CENTENA_INVERTIDA_CERCADA) {
+            return HandlerOfProcess.processCentenaInvertidaCercada(bet, result);
         } else if (bet.getType() == BetType.DEZENA_SECA) {
             return HandlerOfProcess.processDezenaSeca(bet, result);
         } else if (bet.getType() == BetType.DEZENA_CERCADA) {
             return HandlerOfProcess.processDezenaCercada(bet, result);
-        } else if (bet.getType() == BetType.DEZENA_INVERTIDA) {
-            return HandlerOfProcess.processDezenaInvertida(bet, result);
+        } else if (bet.getType() == BetType.DEZENA_INVERTIDA_SECA) {
+            return HandlerOfProcess.processDezenaInvertidaSeca(bet, result);
+        } else if (bet.getType() == BetType.DEZENA_INVERTIDA_CERCADA) {
+            return HandlerOfProcess.processDezenaInvertidaCercada(bet, result);
         } else if (bet.getType() == BetType.DUQUE_DE_DEZENA) {
             return HandlerOfProcess.processDuqueDeDezena(bet, result);
         } else if (bet.getType() == BetType.TERNO_DE_DEZENA) {
