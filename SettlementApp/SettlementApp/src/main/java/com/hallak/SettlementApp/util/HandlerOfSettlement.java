@@ -51,7 +51,7 @@ public class HandlerOfSettlement {
         } else if (bet.getType() == BetType.PASSE_INVERTIDO) {
             return HandlerOfProcess.processPasseInvertido(bet, result);
         } else {
-            throw new IllegalArgumentException("Tipo de aposta não reconhecido: " + bet.getType());
+            throw new IllegalArgumentException("This BetType is not recognized: " + bet.getType());
         }
 
 

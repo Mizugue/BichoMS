@@ -11,7 +11,7 @@
         <module name="eurekaApp" />
         <module name="SettlementApp" />
       </profile>
-      <profile name="Annotation profile for jogoApp" enabled="true">
+      <profile name="Annotation profile for BetApp" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />

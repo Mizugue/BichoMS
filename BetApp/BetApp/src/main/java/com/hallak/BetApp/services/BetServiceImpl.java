@@ -6,6 +6,7 @@ import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
 import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
 import com.hallak.BetApp.models.Bet;
 import com.hallak.BetApp.repositories.BetRepository;
+import com.hallak.BetApp.util.BetValuesValidator;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessResourceFailureException;
@@ -41,7 +42,7 @@ public class BetServiceImpl implements BetService{
         Bet bet = new Bet();
         bet.setAmount(betDTO.getAmount());
         bet.setType(betDTO.getType());
-        bet.setValues(betDTO.getValues());
+        bet.setValues(BetValuesValidator.validateAndFormatValues(betDTO.getValues(), betDTO.getType()));
         bet.setDate(LocalDateTime.now());
         bet.setUser(authenticatedUserService.authenticated());
         bet.setGameId(betDTO.getGameId());
