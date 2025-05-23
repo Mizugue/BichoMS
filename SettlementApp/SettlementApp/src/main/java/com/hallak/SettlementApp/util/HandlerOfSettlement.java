@@ -10,58 +10,36 @@ public class HandlerOfSettlement {
     private HandlerOfSettlement(){
     }
 
-    public static SettlementDTO process(BetReceived bet, ResultReceived result){
-
-        if (bet.getType() == BetType.MILHAR_SECA) {
-            return HandlerOfProcess.processMilharSeca(bet, result);
-        } else if (bet.getType() == BetType.MILHAR_CERCADA) {
-            return HandlerOfProcess.processMilharCercada(bet, result);
-        } else if (bet.getType() == BetType.MILHAR_INVERTIDA_SECA) {
-            return HandlerOfProcess.processMilharInvertidaSeca(bet, result);
-        } else if (bet.getType() == BetType.MILHAR_INVERTIDA_CERCADA){
-            return HandlerOfProcess.processMilharInvertidaCercada(bet , result);
-        } else if (bet.getType() == BetType.CENTENA_SECA) {
-            return HandlerOfProcess.processCentenaSeca(bet, result);
-        } else if (bet.getType() == BetType.CENTENA_CERCADA) {
-            return HandlerOfProcess.processCentenaCercada(bet, result);
-        } else if (bet.getType() == BetType.CENTENA_INVERTIDA_SECA) {
-            return HandlerOfProcess.processCentenaInvertidaSeca(bet, result);
-        } else if (bet.getType() == BetType.CENTENA_INVERTIDA_CERCADA) {
-            return HandlerOfProcess.processCentenaInvertidaCercada(bet, result);
-        } else if (bet.getType() == BetType.DEZENA_SECA) {
-            return HandlerOfProcess.processDezenaSeca(bet, result);
-        } else if (bet.getType() == BetType.DEZENA_CERCADA) {
-            return HandlerOfProcess.processDezenaCercada(bet, result);
-        } else if (bet.getType() == BetType.DEZENA_INVERTIDA_SECA) {
-            return HandlerOfProcess.processDezenaInvertidaSeca(bet, result);
-        } else if (bet.getType() == BetType.DEZENA_INVERTIDA_CERCADA) {
-            return HandlerOfProcess.processDezenaInvertidaCercada(bet, result);
-        } else if (bet.getType() == BetType.DUQUE_DE_DEZENA) {
-            return HandlerOfProcess.processDuqueDeDezena(bet, result);
-        } else if (bet.getType() == BetType.TERNO_DE_DEZENA) {
-            return HandlerOfProcess.processTernoDeDezena(bet, result);
-        } else if (bet.getType() == BetType.GRUPO_SECO) {
-            return HandlerOfProcess.processGrupoSeco(bet, result);
-        } else if (bet.getType() == BetType.GRUPO_CERCADO) {
-            return HandlerOfProcess.processGrupoCercado(bet, result);
-        } else if (bet.getType() == BetType.DUPLA_DE_GRUPO_SECO) {
-            return HandlerOfProcess.processDuplaDeGrupoSeco(bet, result);
-        } else if (bet.getType() == BetType.DUPLA_DE_GRUPO_CERCADO) {
-            return HandlerOfProcess.processDuplaDeGrupoCercado(bet, result);
-        } else if (bet.getType() == BetType.TERNO_DE_GRUPO_SECO) {
-            return HandlerOfProcess.processTernoDeGrupoSeco(bet, result);
-        } else if (bet.getType() == BetType.TERNO_DE_GRUPO_CERCADO) {
-            return HandlerOfProcess.processTernoDeGrupoCercado(bet, result);
-        } else if (bet.getType() == BetType.PASSE) {
-            return HandlerOfProcess.processPasse(bet, result);
-        } else if (bet.getType() == BetType.PASSE_INVERTIDO) {
-            return HandlerOfProcess.processPasseInvertido(bet, result);
-        } else {
-            throw new IllegalArgumentException("This BetType is not recognized: " + bet.getType());
-        }
-
-
+    public static SettlementDTO process(BetReceived bet, ResultReceived result) {
+        return switch (bet.getType()) {
+            case MILHAR_SECA -> HandlerOfProcess.processMilharSeca(bet, result);
+            case MILHAR_CERCADA -> HandlerOfProcess.processMilharCercada(bet, result);
+            case MILHAR_INVERTIDA_SECA -> HandlerOfProcess.processMilharInvertidaSeca(bet, result);
+            case MILHAR_INVERTIDA_CERCADA -> HandlerOfProcess.processMilharInvertidaCercada(bet, result);
+            case CENTENA_SECA -> HandlerOfProcess.processCentenaSeca(bet, result);
+            case CENTENA_CERCADA -> HandlerOfProcess.processCentenaCercada(bet, result);
+            case CENTENA_INVERTIDA_SECA -> HandlerOfProcess.processCentenaInvertidaSeca(bet, result);
+            case CENTENA_INVERTIDA_CERCADA -> HandlerOfProcess.processCentenaInvertidaCercada(bet, result);
+            case DEZENA_SECA -> HandlerOfProcess.processDezenaSeca(bet, result);
+            case DEZENA_CERCADA -> HandlerOfProcess.processDezenaCercada(bet, result);
+            case DEZENA_INVERTIDA_SECA -> HandlerOfProcess.processDezenaInvertidaSeca(bet, result);
+            case DEZENA_INVERTIDA_CERCADA -> HandlerOfProcess.processDezenaInvertidaCercada(bet, result);
+            case DUQUE_DE_DEZENA -> HandlerOfProcess.processDuqueDeDezena(bet, result);
+            case TERNO_DE_DEZENA -> HandlerOfProcess.processTernoDeDezena(bet, result);
+            case GRUPO_SECO -> HandlerOfProcess.processGrupoSeco(bet, result);
+            case GRUPO_CERCADO -> HandlerOfProcess.processGrupoCercado(bet, result);
+            case DUPLA_DE_GRUPO_SECO -> HandlerOfProcess.processDuplaDeGrupoSeco(bet, result);
+            case DUPLA_DE_GRUPO_CERCADO -> HandlerOfProcess.processDuplaDeGrupoCercado(bet, result);
+            case TERNO_DE_GRUPO_SECO -> HandlerOfProcess.processTernoDeGrupoSeco(bet, result);
+            case TERNO_DE_GRUPO_CERCADO -> HandlerOfProcess.processTernoDeGrupoCercado(bet, result);
+            case PASSE_SECO -> HandlerOfProcess.processPasseSeco(bet, result);
+            case PASSE_CERCADO -> HandlerOfProcess.processPasseCercado(bet, result);
+            case PASSE_INVERTIDO_SECO -> HandlerOfProcess.proccessPasseInvertidoSeco(bet, result);
+            case PASSE_INVERTIDO_CERCADO -> HandlerOfProcess.processPasseInvertidoCercado(bet, result);
+            default -> throw new IllegalArgumentException("This BetType is not recognized: " + bet.getType());
+        };
     }
+
 
 
 

@@ -2,7 +2,7 @@ package com.hallak.SettlementApp.util;
 
 import java.util.*;
 
-public class TabelAnimal {
+public class TableAnimal {
 
      private static final Map<String, List<Integer>> animalMap;
 
@@ -37,18 +37,18 @@ public class TabelAnimal {
         animalMap = Collections.unmodifiableMap(map);
     }
 
-    private TabelAnimal() {
+    private TableAnimal() {
     }
 
-    public static List<Integer> getNumbersForAnimal(String animal) {
+    protected static List<Integer> getNumbersForAnimal(String animal) {
         return animalMap.get(animal.toLowerCase());
     }
 
-    public static Map<String, List<Integer>> getAnimalMap() {
+    protected static Map<String, List<Integer>> getAnimalMap() {
         return animalMap;
     }
 
-    public static Optional<String> getAnimalByNumber(int number) {
+    protected static Optional<String> getAnimalByNumber(int number) {
         int num = number % 100;
         for (Map.Entry<String, List<Integer>> entry : animalMap.entrySet()) {
             if (entry.getValue().contains(num)) {

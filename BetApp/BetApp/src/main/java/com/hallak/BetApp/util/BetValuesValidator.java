@@ -24,7 +24,7 @@ public class BetValuesValidator {
             case GRUPO_SECO, GRUPO_CERCADO -> validateGrupo(values, 1);
             case DUPLA_DE_GRUPO_SECO, DUPLA_DE_GRUPO_CERCADO -> validateGrupo(values, 2);
             case TERNO_DE_GRUPO_SECO, TERNO_DE_GRUPO_CERCADO -> validateGrupo(values, 3);
-            case PASSE, PASSE_INVERTIDO -> validatePasse(values);
+            case PASSE_SECO, PASSE_INVERTIDO_SECO, PASSE_CERCADO, PASSE_INVERTIDO_CERCADO -> validatePasse(values);
         };
     }
 
@@ -88,7 +88,7 @@ public class BetValuesValidator {
 
     private static List<String> validatePasse(List<String> values) {
         if (values.size() > 2 || !(Integer.parseInt(values.getFirst()) >= 1) || !(Integer.parseInt(values.getFirst()) <= 25) || !(Integer.parseInt(values.get(1)) >= 1) || !(Integer.parseInt(values.get(1)) <= 25)) {
-                throw new IllegalArgumentException("In the betTypes: " + BetType.PASSE + " , " + BetType.PASSE_INVERTIDO + " are allowed only two values between 1 - 25 of 2 digits each");
+                throw new IllegalArgumentException("In the betTypes: " + BetType.PASSE_SECO + " , " + BetType.PASSE_INVERTIDO_SECO + BetType.PASSE_CERCADO + " , " + BetType.PASSE_INVERTIDO_CERCADO + " are allowed only two values between 1 - 25 of 2 digits each");
             }
         return values;
     }
