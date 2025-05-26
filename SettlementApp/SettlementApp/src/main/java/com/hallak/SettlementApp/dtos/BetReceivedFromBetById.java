@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class BetReceived {
+public class BetReceivedFromBetById {
 
     private BetType type;
     private List<String> values;
@@ -14,7 +14,7 @@ public class BetReceived {
     private Double amount;
     private GameInterServiceDTO game;
 
-    public BetReceived(BetType type, List<String> values, LocalDateTime date, Double amount, GameInterServiceDTO game) {
+    public BetReceivedFromBetById(BetType type, List<String> values, LocalDateTime date, Double amount, GameInterServiceDTO game) {
         this.type = type;
         this.values = values;
         this.date = date;
@@ -22,7 +22,7 @@ public class BetReceived {
         this.game = game;
     }
 
-    public BetReceived() {
+    public BetReceivedFromBetById() {
     }
 
     public BetType getType() {
