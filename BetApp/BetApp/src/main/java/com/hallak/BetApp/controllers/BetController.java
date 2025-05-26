@@ -3,6 +3,7 @@ package com.hallak.BetApp.controllers;
 
 import com.hallak.BetApp.dtos.bet.BetNewDTO;
 import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
+import com.hallak.BetApp.dtos.bet.BetToFindAllDTO;
 import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
 import com.hallak.BetApp.services.BetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class BetController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<BetReturnOfNewDTO> findById(@PathVariable Long id){
         return new ResponseEntity<>(betService.findById(id), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<BetToFindAllDTO>> findAll(){
+        return new ResponseEntity<>(betService.findAll(), HttpStatus.OK);
     }
 
 

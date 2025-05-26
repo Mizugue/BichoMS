@@ -25,6 +25,20 @@ public class ApiKeyFilter extends OncePerRequestFilter {
         return true;
     }
 
+
+    /*@Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+        String method = request.getMethod();
+
+        // APLICA o filtro se for GET e o path for apenas "/" ou "/{id}" (ex: /123)
+        if ("GET".equalsIgnoreCase(method) && (path.equals("/") || path.matches("^/\\d+$"))) {
+            return false; // aplica o filtro
+        }
+
+        return true; // ignora o filtro
+    } */
+
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,

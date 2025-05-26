@@ -3,6 +3,7 @@ package com.hallak.BetApp.services;
 
 import com.hallak.BetApp.dtos.bet.BetNewDTO;
 import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
+import com.hallak.BetApp.dtos.bet.BetToFindAllDTO;
 import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
 import com.hallak.BetApp.models.Bet;
 import com.hallak.BetApp.repositories.BetRepository;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -77,6 +79,22 @@ public class BetServiceImpl implements BetService{
 
 
 
+
+    }
+
+    @Override
+    public List<BetToFindAllDTO> findAll() {
+        List<BetToFindAllDTO> bets = betRepository.findAll().stream().map(x -> modelMapper.map(x, BetToFindAllDTO.class)).toList();
+
+        for (BetToFindAllDTO bet : bets){
+            GameInterServiceDTO game = gameFeignClient.findGameById(bet.getGame().getId());
+            bet.getGame().setName(game.getName());
+            bet.getGame().setCaptureDate(game.getCaptureDate());
+            bet.getGame().setCreationDate(game.getCreationDate());
+            bet.getGame().setHouse(game.getHouse());
+        }
+
+        return bets;
 
     }
 }
