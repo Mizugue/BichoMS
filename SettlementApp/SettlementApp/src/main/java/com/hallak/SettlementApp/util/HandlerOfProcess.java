@@ -3,8 +3,6 @@ package com.hallak.SettlementApp.util;
 import com.hallak.SettlementApp.dtos.BetReceived;
 import com.hallak.SettlementApp.dtos.ResultReceived;
 import com.hallak.SettlementApp.dtos.SettlementDTO;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -169,7 +167,7 @@ public class HandlerOfProcess {
         ResultWrapper resultWrapper = new ResultWrapper(result, 2);
         String dez1 = bet.getValues().getFirst().substring(2);
         String dez2 = bet.getValues().get(1).substring(2);
-        String dez3 = bet.getValues().get(1).substring(2);
+        String dez3 = bet.getValues().get(2).substring(2);
 
         if (resultWrapper.contains(dez1) && resultWrapper.contains(dez2) && resultWrapper.contains(dez3)) {
             return FinalHandler.processWinner(bet, bet.getValues());
@@ -219,7 +217,30 @@ public class HandlerOfProcess {
     }
 
     protected static SettlementDTO processDuplaDeGrupoCercado(BetReceived bet, ResultReceived result) {
-        return new SettlementDTO();
+        ResultWrapper resultWrapper = new ResultWrapper(result, 2);
+        String firstAnimal = TableAnimal.getAnimalByNumber(Integer.parseInt(bet.getValues().getFirst().substring(2))).get();
+        String secondAnimal = TableAnimal.getAnimalByNumber(Integer.parseInt(bet.getValues().get(1).substring(2))).get();
+
+        boolean checker = false;
+
+        List<Integer> numbersOfFirstAnimal = TableAnimal.getNumbersForAnimal(firstAnimal);
+        List<Integer> numbersOfSecondAnimal = TableAnimal.getNumbersForAnimal(secondAnimal);
+
+        for (Integer number : numbersOfFirstAnimal){
+            if (resultWrapper.contains(number.toString())){
+                checker = true;
+            }
+        }
+
+        if (checker) {
+            for (Integer number : numbersOfSecondAnimal){
+                if (resultWrapper.contains(number.toString())){
+                    return FinalHandler.processWinner(bet, List.of(firstAnimal, secondAnimal));
+                }
+            }
+        }
+
+        return FinalHandler.processLoser(bet, List.of(firstAnimal, secondAnimal));
     }
 
     protected static SettlementDTO processTernoDeGrupoSeco(BetReceived bet, ResultReceived result) {
@@ -263,9 +284,46 @@ public class HandlerOfProcess {
 
 
     public static SettlementDTO processTernoDeGrupoCercado(BetReceived bet, ResultReceived result) {
-        return new SettlementDTO();
+        ResultWrapper resultWrapper = new ResultWrapper(result, 2);
 
+        String firstAnimal = TableAnimal.getAnimalByNumber(Integer.parseInt(bet.getValues().getFirst().substring(2))).get();
+        String secondAnimal = TableAnimal.getAnimalByNumber(Integer.parseInt(bet.getValues().get(1).substring(2))).get();
+        String thirdAnimal = TableAnimal.getAnimalByNumber(Integer.parseInt(bet.getValues().get(2).substring(2))).get();
+
+        boolean checkerFirst = false;
+        boolean checkerSecond = false;
+
+        List<Integer> numbersOfFirstAnimal = TableAnimal.getNumbersForAnimal(firstAnimal);
+        List<Integer> numbersOfSecondAnimal = TableAnimal.getNumbersForAnimal(secondAnimal);
+        List<Integer> numbersOfThirdAnimal = TableAnimal.getNumbersForAnimal(thirdAnimal);
+
+
+        for (Integer number : numbersOfFirstAnimal){
+            if (resultWrapper.contains(number.toString())){
+                checkerFirst = true;
+            }
+        }
+
+        if (checkerFirst) {
+            for (Integer number : numbersOfSecondAnimal){
+                if (resultWrapper.contains(number.toString())){
+                    checkerSecond = true;
+                }
+            }
+        }
+
+        if (checkerSecond){
+            for (Integer number : numbersOfThirdAnimal) {
+                if (resultWrapper.contains(number.toString())){
+                    return FinalHandler.processWinner(bet, List.of(firstAnimal, secondAnimal, thirdAnimal));
+                }
+            }
+        }
+
+
+        return FinalHandler.processLoser(bet, List.of(firstAnimal, secondAnimal, thirdAnimal));
     }
+
 
 
     public static SettlementDTO processPasseSeco(BetReceived bet, ResultReceived result) {
