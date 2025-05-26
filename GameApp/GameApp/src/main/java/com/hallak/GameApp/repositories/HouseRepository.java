@@ -9,4 +9,6 @@ import java.util.Optional;
 @Repository
 public interface HouseRepository extends JpaRepository<House, Long> {
     Optional<House> findByUsername(String username);
+
+
 }

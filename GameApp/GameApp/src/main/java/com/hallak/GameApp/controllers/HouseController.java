@@ -1,10 +1,8 @@
 package com.hallak.GameApp.controllers;
 
 import com.hallak.GameApp.dtos.game.GameDTO;
-import com.hallak.GameApp.dtos.house.HouseDTO;
-import com.hallak.GameApp.dtos.house.HouseOddsDTO;
-import com.hallak.GameApp.dtos.house.HouseRegisterDTO;
-import com.hallak.GameApp.dtos.house.HouseReturnOfRegisterDTO;
+import com.hallak.GameApp.dtos.house.*;
+import com.hallak.GameApp.models.BetType;
 import com.hallak.GameApp.services.GameService;
 import com.hallak.GameApp.services.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +46,16 @@ public class HouseController {
     @GetMapping(value = "/games")
     public ResponseEntity<List<GameDTO>> findAllMy(){
         return new ResponseEntity<>(gameService.findAllMy(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/calculate-amount")
+    public ResponseEntity<Double> calculateAmount(@RequestParam String username, @RequestParam BetType betType, @RequestParam Double amount){
+        return new ResponseEntity<>(houseService.calculateAmount(username, betType, amount), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<HouseFromGISDTO>> findAll(){
+        return new ResponseEntity<>(houseService.findAll(), HttpStatus.OK);
     }
 
 

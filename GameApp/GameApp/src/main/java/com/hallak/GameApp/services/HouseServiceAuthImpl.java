@@ -1,9 +1,6 @@
 package com.hallak.GameApp.services;
 
-import com.hallak.GameApp.dtos.house.HouseDTO;
-import com.hallak.GameApp.dtos.house.HouseOddsDTO;
-import com.hallak.GameApp.dtos.house.HouseRegisterDTO;
-import com.hallak.GameApp.dtos.house.HouseReturnOfRegisterDTO;
+import com.hallak.GameApp.dtos.house.*;
 import com.hallak.GameApp.models.BetType;
 import com.hallak.GameApp.models.House;
 import com.hallak.GameApp.models.Role;
@@ -17,9 +14,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.ResourceAccessException;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -86,6 +85,19 @@ public class HouseServiceAuthImpl implements UserDetailsService, HouseService {
         houseLogged.setOdds(convertedOdds);
         return modelMapper.map(houseRepository.save(houseLogged), HouseOddsDTO.class);
 
+    }
+
+    @Override
+    public Double calculateAmount(String username, BetType betType, Double amount) {
+        House house = houseRepository.findByUsername(username).orElseThrow(() -> new ResourceAccessException("Invalid username"));
+        BigDecimal odd = house.getOdds().get(betType);
+
+        return amount * odd.doubleValue();
+    }
+
+    @Override
+    public List<HouseFromGISDTO> findAll() {
+        return houseRepository.findAll().stream().map(x -> modelMapper.map(x, HouseFromGISDTO.class)).toList();
     }
 
 
