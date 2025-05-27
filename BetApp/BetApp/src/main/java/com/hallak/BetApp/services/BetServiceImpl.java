@@ -5,6 +5,7 @@ import com.hallak.BetApp.dtos.bet.BetNewDTO;
 import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
 import com.hallak.BetApp.dtos.bet.BetToFindAllDTO;
 import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
+import com.hallak.BetApp.dtos.external.GameToFindAllDTO;
 import com.hallak.BetApp.models.Bet;
 import com.hallak.BetApp.repositories.BetRepository;
 import com.hallak.BetApp.util.BetValuesValidator;
@@ -25,13 +26,15 @@ public class BetServiceImpl implements BetService{
     private final ModelMapper modelMapper;
     private final AuthenticatedUserService authenticatedUserService;
     private final GameFeignClient gameFeignClient;
+    private final BetValuesValidator betValuesValidator;
 
     @Autowired
-    public BetServiceImpl(BetRepository betRepository, ModelMapper modelMapper, AuthenticatedUserService authenticatedUserService, GameFeignClient gameFeignClient){
+    public BetServiceImpl(BetRepository betRepository, ModelMapper modelMapper, AuthenticatedUserService authenticatedUserService, GameFeignClient gameFeignClient, BetValuesValidator betValuesValidator){
         this.betRepository = betRepository;
         this.modelMapper = modelMapper;
         this.authenticatedUserService = authenticatedUserService;
         this.gameFeignClient = gameFeignClient;
+        this.betValuesValidator = betValuesValidator;
     }
 
     @Override
@@ -41,10 +44,11 @@ public class BetServiceImpl implements BetService{
             throw new DataAccessResourceFailureException("GameId " + betDTO.getGameId() + " is invalid, expired, or not found.");
         }
 
+
         Bet bet = new Bet();
         bet.setAmount(betDTO.getAmount());
-        bet.setType(betDTO.getType());
-        bet.setValues(BetValuesValidator.validateAndFormatValues(betDTO.getValues(), betDTO.getType()));
+        bet.setType(betValuesValidator.validateBetType(betDTO));
+        bet.setValues(betValuesValidator.validateAndFormatValues(betDTO));
         bet.setDate(LocalDateTime.now());
         bet.setUser(authenticatedUserService.authenticated());
         bet.setGameId(betDTO.getGameId());
@@ -56,16 +60,6 @@ public class BetServiceImpl implements BetService{
     }
 
 
-
-    @Override
-    public List<GameInterServiceDTO> findAllGames() {
-        return gameFeignClient.findAllGames();
-    }
-
-    @Override
-    public GameInterServiceDTO findGameById(Long id) {
-        return gameFeignClient.findGameById(id);
-    }
 
     @Override
     public BetReturnOfNewDTO findById(Long id) {
@@ -91,10 +85,19 @@ public class BetServiceImpl implements BetService{
             bet.getGame().setName(game.getName());
             bet.getGame().setCaptureDate(game.getCaptureDate());
             bet.getGame().setCreationDate(game.getCreationDate());
-            bet.getGame().setHouse(game.getHouse());
+            bet.getGame().setHouse(bet.getGame().getHouse());
+            bet.setUser(bet.getUser());
+
         }
 
         return bets;
+
+    }
+
+    @Override
+    public List<BetToFindAllDTO> findAllByUsername(String username) {
+        return betRepository.findByUserUsername(username).stream().map(x -> modelMapper.map(x, BetToFindAllDTO.class)).toList();
+
 
     }
 }

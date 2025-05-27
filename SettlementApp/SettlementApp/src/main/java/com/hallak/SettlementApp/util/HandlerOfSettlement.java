@@ -1,7 +1,6 @@
 package com.hallak.SettlementApp.util;
 
 import com.hallak.SettlementApp.dtos.BetReceived;
-import com.hallak.SettlementApp.dtos.BetType;
 import com.hallak.SettlementApp.dtos.ResultReceived;
 import com.hallak.SettlementApp.dtos.SettlementDTO;
 import org.springframework.beans.factory.annotation.Autowired;

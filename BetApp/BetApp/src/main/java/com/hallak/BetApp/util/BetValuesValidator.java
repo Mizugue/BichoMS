@@ -1,21 +1,34 @@
 package com.hallak.BetApp.util;
 
+import com.hallak.BetApp.dtos.bet.BetNewDTO;
+import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
 import com.hallak.BetApp.models.BetType;
+import com.hallak.BetApp.services.GameFeignClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class BetValuesValidator {
 
-    private BetValuesValidator() {
+    private final GameFeignClient gameFeignClient;
+
+    @Autowired
+    public BetValuesValidator(GameFeignClient gameFeignClient) {
+        this.gameFeignClient = gameFeignClient;
+
     }
 
 
-    public static List<String> validateAndFormatValues(List<String> values, BetType type) {
+    public List<String> validateAndFormatValues(BetNewDTO betDTO) {
+        List<String> values = betDTO.getValues();
+
         if (values == null || values.isEmpty()) {
             throw new IllegalArgumentException("The list of values cannot be empty or null");
         }
 
-        return switch (type) {
+        return switch (betDTO.getType()) {
             case MILHAR_SECA, MILHAR_CERCADA, MILHAR_INVERTIDA_SECA, MILHAR_INVERTIDA_CERCADA -> validateMilhar(values);
             case CENTENA_SECA, CENTENA_CERCADA, CENTENA_INVERTIDA_SECA, CENTENA_INVERTIDA_CERCADA -> validateCentena(values);
             case DEZENA_SECA, DEZENA_CERCADA, DEZENA_INVERTIDA_SECA, DEZENA_INVERTIDA_CERCADA -> validateDezena(values);
@@ -29,13 +42,20 @@ public class BetValuesValidator {
     }
 
 
+    public BetType validateBetType(BetNewDTO betDTO){
+        GameInterServiceDTO game = gameFeignClient.findGameById(betDTO.getGameId());
+        if (!game.getHouse().getOdds().containsKey(betDTO.getType().toString())){
+            throw new IllegalArgumentException("The BetType shall exist in the house");
+        }
+        return betDTO.getType();
+
+    }
+
 
     private static List<String> validateMilhar(List<String> values) {
-        System.out.println("Entrou no validate Milhar");
         if (values.size() > 1 || !values.getFirst().matches("\\d{4}")) {
             throw new IllegalArgumentException("In the betTypes: " + BetType.MILHAR_SECA + " , " + BetType.MILHAR_CERCADA + " , " + BetType.MILHAR_INVERTIDA_SECA + " , " + BetType.MILHAR_INVERTIDA_CERCADA + " are allowed only one value of 4 digits");
         }
-        System.out.println("Nao rodou nenhuma excecao");
         return values;
     }
 

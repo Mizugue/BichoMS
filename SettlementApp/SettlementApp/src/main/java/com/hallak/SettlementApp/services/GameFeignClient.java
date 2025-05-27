@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "jogopp-service")
 public interface GameFeignClient {
 
-    @GetMapping(value = "/calculate-amount")
+    @GetMapping(value = "/house/calculate-amount")
     Double calculateAmount(@RequestParam String username, @RequestParam BetType betType, @RequestParam Double amount);
 
 }

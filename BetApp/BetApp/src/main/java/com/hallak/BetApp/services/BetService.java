@@ -11,8 +11,7 @@ import java.util.Optional;
 
 public interface BetService {
     BetReturnOfNewDTO newBet(BetNewDTO betDTO);
-    List<GameInterServiceDTO> findAllGames();
-    GameInterServiceDTO findGameById(Long id);
     BetReturnOfNewDTO findById(Long id);
     List<BetToFindAllDTO> findAll();
+    List<BetToFindAllDTO> findAllByUsername(String username);
 }

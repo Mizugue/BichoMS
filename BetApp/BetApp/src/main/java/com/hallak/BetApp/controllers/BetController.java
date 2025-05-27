@@ -26,14 +26,19 @@ public class BetController {
         return new ResponseEntity<>(betService.newBet(betDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/api/bet/{id}")
     public ResponseEntity<BetReturnOfNewDTO> findById(@PathVariable Long id){
         return new ResponseEntity<>(betService.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping
+    @GetMapping(value = "/api/bet")
     public ResponseEntity<List<BetToFindAllDTO>> findAll(){
         return new ResponseEntity<>(betService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/api/bet/user/{username}")
+    public ResponseEntity<List<BetToFindAllDTO>> findAllByUsername(@PathVariable String username){
+        return new ResponseEntity<>(betService.findAllByUsername(username), HttpStatus.OK);
     }
 
 

@@ -13,31 +13,19 @@ public class ApiKeyFilter extends OncePerRequestFilter {
     private static final String API_KEY_HEADER = "X-API-KEY";
     private static final String EXPECTED_API_KEY = "settlementapp-secret-key";
 
+
+
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String path = request.getRequestURI();
         String method = request.getMethod();
 
-        if ("GET".equalsIgnoreCase(method) && path.matches("^/\\d+$")) {
+        if ("GET".equalsIgnoreCase(method) && path.startsWith("/api")) {
             return false;
         }
 
         return true;
     }
-
-
-    /*@Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        String path = request.getRequestURI();
-        String method = request.getMethod();
-
-        // APLICA o filtro se for GET e o path for apenas "/" ou "/{id}" (ex: /123)
-        if ("GET".equalsIgnoreCase(method) && (path.equals("/") || path.matches("^/\\d+$"))) {
-            return false; // aplica o filtro
-        }
-
-        return true; // ignora o filtro
-    } */
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,

@@ -2,7 +2,10 @@ package com.hallak.BetApp.dtos.bet;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
+import com.hallak.BetApp.dtos.external.GameToFindAllDTO;
+import com.hallak.BetApp.dtos.user.UserReturnOfAuthDTO;
 import com.hallak.BetApp.models.BetType;
+import com.hallak.BetApp.models.User;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,15 +18,17 @@ public class BetToFindAllDTO {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime date;
     private Double amount;
-    private GameInterServiceDTO game;
+    private GameToFindAllDTO game;
+    private UserReturnOfAuthDTO user;
 
-    public BetToFindAllDTO(BetType type, List<String> values, LocalDateTime date, Double amount, GameInterServiceDTO game, Long id) {
+    public BetToFindAllDTO(BetType type, List<String> values, LocalDateTime date, Double amount, GameToFindAllDTO game, Long id, UserReturnOfAuthDTO user) {
         this.id = id;
         this.type = type;
         this.values = values;
         this.date = date;
         this.amount = amount;
         this.game = game;
+        this.user = user;
     }
 
     public BetToFindAllDTO() {
@@ -53,11 +58,11 @@ public class BetToFindAllDTO {
         this.date = date;
     }
 
-    public GameInterServiceDTO getGame() {
+    public GameToFindAllDTO getGame() {
         return game;
     }
 
-    public void setGame(GameInterServiceDTO game) {
+    public void setGame(GameToFindAllDTO game) {
         this.game = game;
     }
 
@@ -76,6 +81,16 @@ public class BetToFindAllDTO {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public UserReturnOfAuthDTO getUser() {
+        return user;
+    }
+
+    public void setUser(UserReturnOfAuthDTO user) {
+        this.user = user;
+    }
+
+
 }
 
 
