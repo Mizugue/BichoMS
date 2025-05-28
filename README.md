@@ -170,5 +170,7 @@ SettlementApp [1003]
 
 ---
 
+## ⚠️ Aviso
 
+Este projeto é apenas para fins educacionais. O uso deste sistema para fins reais pode violar leis locais. Não me responsabilizo por qualquer uso indevido 😹
 
