@@ -1,6 +1,6 @@
 # 🎰 Jogo do Bicho - Sistema de Correção com Microserviços
 
-Este repositório contém um sistema completo do Jogo do Bicho, baseado em arquitetura de microserviços. Cada serviço tem uma responsabilidade bem definida, e a comunicação entre eles é feita via **Open Feign**. A aplicação utiliza autenticação com **OAuth2** e Spring security.
+Este repositório contém um sistema completo do Jogo do Bicho, baseado em arquitetura de microserviços. Cada serviço tem uma responsabilidade bem definida, e a comunicação entre eles é feita via **Open Feign**. GameApp e BetApp utilizam autenticação com **OAuth2** e Spring security.
 
 ---
 
