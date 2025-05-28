@@ -127,5 +127,48 @@ Todos os serviços comunicam-se exclusivamente via **Open Feign**, garantindo de
 
 ---
 
+## 🔑 Guia dos caminhos (endpoints)
+
+ConfigApp [8888]
+- [GET] /{$service}/default : Captura configuração especifica daquele serviço
+
+EurekaApp [8761]
+- [GET] / : Painel do Eureka com serviços registrados
+
+GameApp [1000]
+- [POST] /oauth2/token?username={{username}}&password={{password}}&grant_type=password : Autenticação para receber JWT
+- [POST] /house/register : Registra uma nova casa de aposta
+- [POST/AUTH] / : Cria um novo jogo
+- [GET/AUTH] /house/games : Busca meus jogos (atrelados a minha banca)
+- [POST/AUTH] /house/odds : Permite alterar as minhas odds 
+- [GET/AUTH] /house/me : Exibe informações sobre mim (banca)
+- [GET] / : Exibe todos os jogos ja criados
+- [GET] /{id} : Exibe jogo pelo id
+- [GET] /data-ex : Exibe todos os jogos ja expirados (inválidos)
+- [GET] /data-com : Exibe todos os jogos ainda válidos
+- [GET] /house : Exibe todas as casas ja registradas 
+- [GET] /house/calculate-amount?username={{username}}&betType={{betType}}&amount={{amount}} : Busca a banca de nome (user), puxa a odd do seu BetType e 
+retorna o produto de amount * odd. Assim, simulando quanto ganharia caso apostasse nessa banca determinada quantia
+
+BetApp [1002]
+- [POST] /oauth2/token?username={{username}}&password={{password}}&grant_type=password : Autenticação para receber JWT
+- [POST] /register : Registra um novo usuário
+- [GET/AUTH] /me : Exibe informações sobre mim (user)
+- [POST/AUTH] / : Cria uma nova aposta
+- [GET/AUTH/APIKEY] /api/bet/{id} : Busca aposta pelo id
+- [GET/AUTH/APIKEY] /api/bet : Busca todas as apostas já realizadas 
+- [GET/AUTH/APIKEY] /api/bet/user/{username} : Busca todas as apostas já realizadas por determinado usuário
+
+ResultApp [1001]
+- [POST] / : Resolve todos os jogos expirados que ainda nao foram resolvidos
+- [GET] / : Busca todos os resultados
+- [GET] /{id} : Busca todos os resultados pelo Id do jogo  
+
+SettlementApp [1003] 
+- [POST] /bet/{id} : Faz a correção pelo id da aposta
+- [POST] /bet/user/{username} : Faz a correção de todas as apostas ja realizadas pelo usuário especificado
+
+---
+
 
 
