@@ -1,6 +1,33 @@
-# 🎰 Jogo do Bicho - Sistema Completo com Microserviços
+# 🎰 Jogo do Bicho - Sistema Completo com Microserviços (API rest)
 
 Este repositório contém um sistema completo do Jogo do Bicho, baseado em arquitetura de microserviços. Cada serviço tem uma responsabilidade bem definida, e a comunicação entre eles é feita via **Open Feign**. GameApp e BetApp utilizam autenticação com **OAuth2** e Spring security.
+
+- > +25 endpoints
+- > 24 Tipos de apostas (MILHAR_SECA,
+    MILHAR_CERCADA,
+    MILHAR_INVERTIDA_SECA,
+    MILHAR_INVERTIDA_CERCADA,
+    CENTENA_SECA,
+    CENTENA_CERCADA,
+    CENTENA_INVERTIDA_SECA,
+    CENTENA_INVERTIDA_CERCADA,
+    DEZENA_SECA,
+    DEZENA_CERCADA,
+    DEZENA_INVERTIDA_SECA,
+    DEZENA_INVERTIDA_CERCADA,
+    DUQUE_DE_DEZENA,
+    TERNO_DE_DEZENA,
+    GRUPO_SECO,
+    GRUPO_CERCADO,
+    DUPLA_DE_GRUPO_SECO,
+    DUPLA_DE_GRUPO_CERCADO,
+    TERNO_DE_GRUPO_SECO,
+    TERNO_DE_GRUPO_CERCADO,
+    PASSE_SECO,
+    PASSE_CERCADO,
+    PASSE_INVERTIDO_SECO,
+    PASSE_INVERTIDO_CERCADO)
+
 
 ---
 
