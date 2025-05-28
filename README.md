@@ -38,6 +38,10 @@ Este repositório contém um sistema completo do Jogo do Bicho, baseado em arqui
 ---
 
 ### 3. **GameApp**
+
+![uml-jogobicho](https://github.com/user-attachments/assets/82844a43-6445-495d-b73e-2d708268d54f)
+
+
 > Serviço de gestão das casas de apostas e jogos
 
 - Permite o registro de uma **casa de apostas com as suas odds (banca)**.
@@ -46,6 +50,10 @@ Este repositório contém um sistema completo do Jogo do Bicho, baseado em arqui
 ---
 
 ### 4. **BetApp**
+
+![uml-apostabicho](https://github.com/user-attachments/assets/59c08752-a201-4e57-9b3d-3b764c33d06c)
+
+
 > Serviço de gestão dos apostadores e apostas
 
 - Permite o registro de **usuários apostadores** e o registro de apostas.
@@ -54,6 +62,10 @@ Este repositório contém um sistema completo do Jogo do Bicho, baseado em arqui
 ---
 
 ### 5. **ResultApp**
+
+![uml-resultadobicho](https://github.com/user-attachments/assets/e534dbc6-0c86-423c-9582-080fd609e003)
+
+
 > Serviço de resolução de jogos
 
 - Identifica **jogos expirados** com base na `dataDeCaptura` e resolve os mesmos.
