@@ -91,5 +91,14 @@ Todos os serviços comunicam-se exclusivamente via **Open Feign**, garantindo de
 
 ---
 
+## 🧠 Ordem lógica da aplicação
+
+- A banca se registra e, em seguida, cria jogos.
+- O usuário se registra e realiza apostas em jogos válidos.
+- O operador do serviço de Resultados processa o resultado de todos os jogos expirados (ou seja, não válidos).
+- O operador do serviço de Correção resolve as apostas referentes a jogos expirados que já foram resolvidos pelo serviço de Resultados.
+
+---
+
 
 
