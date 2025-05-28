@@ -3,7 +3,7 @@
 Este repositório contém um sistema completo do Jogo do Bicho, baseado em arquitetura de microserviços. Cada serviço tem uma responsabilidade bem definida, e a comunicação entre eles é feita via **Open Feign**. GameApp e BetApp utilizam autenticação com **OAuth2** e Spring security.
 
 - > +25 endpoints
-- > 24 Tipos de apostas (MILHAR_SECA,
+- > 24 Tipos de apostas com toda uma lógica de correção e validação implementada para cada uma delas (MILHAR_SECA,
     MILHAR_CERCADA,
     MILHAR_INVERTIDA_SECA,
     MILHAR_INVERTIDA_CERCADA,
