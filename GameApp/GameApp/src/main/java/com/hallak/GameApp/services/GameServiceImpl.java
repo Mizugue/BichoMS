@@ -4,6 +4,7 @@ import com.hallak.GameApp.dtos.game.GameDTO;
 import com.hallak.GameApp.dtos.game.GameInterServiceDTO;
 import com.hallak.GameApp.dtos.game.GameMakeDTO;
 import com.hallak.GameApp.dtos.house.HouseFromGISDTO;
+import com.hallak.GameApp.exceptions.exception.InvalidArgumentException;
 import com.hallak.GameApp.models.Game;
 import com.hallak.GameApp.repositories.GameRepository;
 import org.modelmapper.ModelMapper;
@@ -30,6 +31,9 @@ public class GameServiceImpl implements GameService {
     @Override
     public GameDTO newGame(GameMakeDTO dto) {
         Game game = modelMapper.map(dto, Game.class);
+        if (dto.getCaptureDate().isBefore(LocalDateTime.now())){
+             throw new InvalidArgumentException("The CaptureDate shall be in the future! ");
+        }
         game.setCreationDate(LocalDateTime.now());
         game.setStatus(true);
         game.setHouse(authenticatedHouseService.authenticated());
