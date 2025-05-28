@@ -1,5 +1,6 @@
 package com.hallak.GameApp.services;
 
+import com.hallak.GameApp.exceptions.exception.ResourceNotFoundException;
 import com.hallak.GameApp.models.House;
 import com.hallak.GameApp.repositories.HouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -19,12 +19,7 @@ public class ApiKeyFilter extends OncePerRequestFilter {
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String path = request.getRequestURI();
         String method = request.getMethod();
-
-        if ("GET".equalsIgnoreCase(method) && path.startsWith("/api")) {
-            return false;
-        }
-
-        return true;
+        return !("GET".equalsIgnoreCase(method) && path.startsWith("/api"));
     }
 
     @Override

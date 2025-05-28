@@ -4,6 +4,7 @@ import com.hallak.SettlementApp.dtos.BetReceived;
 import com.hallak.SettlementApp.dtos.BetReceivedFromBetByUsernameDTO;
 import com.hallak.SettlementApp.dtos.ResultReceived;
 import com.hallak.SettlementApp.dtos.SettlementDTO;
+import com.hallak.SettlementApp.exceptions.exception.ResourceNotFoundException;
 import com.hallak.SettlementApp.util.HandlerOfSettlement;
 import feign.FeignException;
 import org.modelmapper.ModelMapper;
@@ -47,7 +48,7 @@ public class SettlementServiceImpl implements SettlementService{
             betReceived = betFeignClient.findById(id);
             resultReceived = resultFeignClient.findByGameId(betReceived.getGame().getId());
         } catch (FeignException e) {
-            throw new ResourceAccessException(e.getMessage());
+            throw new ResourceNotFoundException(e.getMessage());
         }
 
         return handlerOfSettlement.process(betReceived, resultReceived);

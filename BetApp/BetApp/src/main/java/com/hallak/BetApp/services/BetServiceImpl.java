@@ -6,6 +6,7 @@ import com.hallak.BetApp.dtos.bet.BetReturnOfNewDTO;
 import com.hallak.BetApp.dtos.bet.BetToFindAllDTO;
 import com.hallak.BetApp.dtos.external.GameInterServiceDTO;
 import com.hallak.BetApp.dtos.external.GameToFindAllDTO;
+import com.hallak.BetApp.exceptions.exception.InvalidArgumentException;
 import com.hallak.BetApp.models.Bet;
 import com.hallak.BetApp.repositories.BetRepository;
 import com.hallak.BetApp.util.BetValuesValidator;
@@ -41,7 +42,7 @@ public class BetServiceImpl implements BetService{
     public BetReturnOfNewDTO newBet(BetNewDTO betDTO) {
         GameInterServiceDTO gameInterServiceDTO = gameFeignClient.findGameById(betDTO.getGameId());
         if (gameInterServiceDTO == null || gameInterServiceDTO.getCaptureDate().isBefore(LocalDateTime.now())) {
-            throw new DataAccessResourceFailureException("GameId " + betDTO.getGameId() + " is invalid, expired, or not found.");
+            throw new InvalidArgumentException("GameId " + betDTO.getGameId() + " is invalid, expired, or not found.");
         }
 
 
@@ -68,7 +69,7 @@ public class BetServiceImpl implements BetService{
             betDTO.get().setGame(gameFeignClient.findGameById(betDTO.get().getGame().getId()));
             return betDTO.get();
         } else {
-            throw new DataAccessResourceFailureException("BetId " + id + " is invalid or not found.");
+            throw new InvalidArgumentException("BetId " + id + " is invalid or not found.");
         }
 
 

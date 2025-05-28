@@ -49,10 +49,6 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public UserDTO getMe() {
-        /*User user = authenticatedUserService.authenticated();
-        UserDTO userDTO = modelMapper.map(user, UserDTO.class);
-        userDTO.setBets(user.getBets().stream().map(x -> modelMapper.map(x, BetDTO.class)).collect(Collectors.toSet()));
-        return userDTO;*/
         return modelMapper.map(authenticatedUserService.authenticated(), UserDTO.class);
     }
 

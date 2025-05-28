@@ -1,6 +1,8 @@
 package com.hallak.GameApp.services;
 
 import com.hallak.GameApp.dtos.house.*;
+import com.hallak.GameApp.exceptions.exception.InvalidArgumentException;
+import com.hallak.GameApp.exceptions.exception.ResourceNotFoundException;
 import com.hallak.GameApp.models.BetType;
 import com.hallak.GameApp.models.House;
 import com.hallak.GameApp.models.Role;
@@ -46,7 +48,7 @@ public class HouseServiceAuthImpl implements UserDetailsService, HouseService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException  {
         Optional<House> result = houseRepository.findByUsername(username);
         if (result.isEmpty()){
             throw new UsernameNotFoundException("User not found");
@@ -79,7 +81,7 @@ public class HouseServiceAuthImpl implements UserDetailsService, HouseService {
                 BetType betType = BetType.valueOf(entry.getKey().toUpperCase());
                 convertedOdds.put(betType, entry.getValue());
             } catch (IllegalArgumentException e) {
-                throw new IllegalArgumentException("Invalid value");
+                throw new InvalidArgumentException("Invalid value: " + e.getLocalizedMessage());
                 }
         }
         houseLogged.setOdds(convertedOdds);
@@ -89,7 +91,7 @@ public class HouseServiceAuthImpl implements UserDetailsService, HouseService {
 
     @Override
     public Double calculateAmount(String username, BetType betType, Double amount) {
-        House house = houseRepository.findByUsername(username).orElseThrow(() -> new ResourceAccessException("Invalid username"));
+        House house = houseRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("Invalid username"));
         BigDecimal odd = house.getOdds().get(betType);
 
         return amount * odd.doubleValue();

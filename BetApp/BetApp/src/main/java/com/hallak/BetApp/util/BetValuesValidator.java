@@ -114,17 +114,4 @@ public class BetValuesValidator {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

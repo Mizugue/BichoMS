@@ -41,10 +41,4 @@ public class BetController {
         return new ResponseEntity<>(betService.findAllByUsername(username), HttpStatus.OK);
     }
 
-
-
-
-
-
-
 }
