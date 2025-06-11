@@ -32,7 +32,7 @@ public class GameServiceImpl implements GameService {
     public GameDTO newGame(GameMakeDTO dto) {
         Game game = modelMapper.map(dto, Game.class);
         if (dto.getCaptureDate().isBefore(LocalDateTime.now())){
-             throw new InvalidArgumentException("The CaptureDate shall be in the future! ");
+             throw new InvalidArgumentException("The capture date of a new game must be in the future! ");
         }
         game.setCreationDate(LocalDateTime.now());
         game.setStatus(true);
