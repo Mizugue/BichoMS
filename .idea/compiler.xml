@@ -10,12 +10,14 @@
         <module name="ConfigApp" />
         <module name="eurekaApp" />
         <module name="SettlementApp" />
+        <module name="GatewayApp" />
       </profile>
       <profile name="Annotation profile for BetApp" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
         <module name="BetApp" />
@@ -31,6 +33,7 @@
       <module name="BetApp" options="-parameters" />
       <module name="ConfigApp" options="-parameters" />
       <module name="GameApp" options="-parameters" />
+      <module name="GatewayApp" options="-parameters" />
       <module name="JogoApp" options="-parameters" />
       <module name="ResultApp" options="-parameters" />
       <module name="SettlementApp" options="-parameters" />
